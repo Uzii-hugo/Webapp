@@ -1,6 +1,5 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import PostsData from '../Data/PostsData';
 function Button() {
   return(
       <button className="button button-primary">
