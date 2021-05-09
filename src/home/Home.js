@@ -23,9 +23,13 @@ render(){
   return (
     <>
       <div className = 'container'>
+<<<<<<< HEAD
       {Object
           .keys(this.state.posts)
           .map(key => <Card key={key} index={key} details={this.state.posts[key]}/>)}
+=======
+        <Card></Card>
+>>>>>>> boss
       </div>
     </>
   );
