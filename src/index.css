@@ -65,6 +65,7 @@ body {
 } 
 
 .card {
+  display: inline-block;
   width:280px;
   display: block;
   padding: 20px;
@@ -149,4 +150,8 @@ body {
 background: linear-gradient(180deg, rgba(50,3,108,1) 0%, rgba(255,255,255,1) 83%);
   height: 700px;
   display: block;
+}
+footer{
+  border: 2px solid black;
+  background-color: blue;
 }
