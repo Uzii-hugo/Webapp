@@ -9,6 +9,7 @@ function Home() {
     <>
       <div className = 'container'>
         <Card></Card>
+        <h1>bosss</h1>
       </div>
     </>
   );
