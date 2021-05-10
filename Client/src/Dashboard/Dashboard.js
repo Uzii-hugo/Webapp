@@ -1,20 +1,25 @@
-import React from 'react';
-import {useHistory} from "react-router-dom"
+import React ,{useContext} from 'react';
+import {Redirect} from "react-router-dom"
+import {AuthContext} from '../Login/Auth'
+import auth from '../firebase/config1';
 
-function Dashboard() {
-  const history = useHistory();
+const Dashboard = () =>{
+      const {currenUser} = useContext(AuthContext);
+      
+      if (!currenUser) {
+        return <Redirect to="/SignIn" />;
+    }
 
-  // handle click event of logout button
-  const handleLogout = () => {    
-    history.push('/login');
-  }
+    return (
+        <div>
+            <div className="container mt-5">
+                <h1>Welcome</h1>
+                <p>This is the dashboard, if you can see this you're logged in.</p>
+                <button onClick={() => auth.auth().signOut()} class="btn btn-danger">Sign Out</button>
+            </div>
+        </div>
+    )
 
-  return (
-    <div>
-      Welcome User!<br /><br />
-      <input type="button" onClick={handleLogout} value="Logout" />
-    </div>
-  );
 }
 
 export default Dashboard;

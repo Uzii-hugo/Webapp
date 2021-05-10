@@ -1,33 +1,35 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import SignIn from './SignIn';
+import {AuthContext} from './Auth'
 import SignUp from './SignUp';
 import auth from '../firebase';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 
 
 function Login() {
-  const [session, setSession] = useState({
-    isLoggedIn: true,
-    currentUser: null,
-    errorMessage: null
-  });
+  const { currenUser } = useContext(AuthContext);
+  // const [session, setSession] = useState({
+  //   isLoggedIn: true,
+  //   currentUser: null,
+  //   errorMessage: null
+  // });
 
-  useEffect(() => {
-    const handleAuth = auth.onAuthStateChanged(user => {
-      if (user) {
-        setSession({
-          isLoggedIn: false,
-          currentUser: user,
-          errorMessage: null
-        });
-      }
-    });
+  // useEffect(() => {
+  //   const handleAuth = auth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       setSession({
+  //         isLoggedIn: false,
+  //         currentUser: user,
+  //         errorMessage: null
+  //       });
+  //     }
+  //   });
 
-    return () => {
-      handleAuth();
-    };
-  }, []);
+  //   return () => {
+  //     handleAuth();
+  //   };
+  // }, []);
 
 
 
@@ -55,12 +57,16 @@ function Login() {
   // }
 
   return (
-    <div className = 'loginbody'>{
-      session.isLoggedIn ? (<Dashboard />): (<SignIn setSession = {setSession}/>)
-      
-    }
-        
-    </div>
+    <div className="container mt-5">
+    <h1>Home</h1>
+    {currenUser ? (
+        <p>You are logged in - <Link to="/dashboard">View Dashboard</Link></p>
+    ) : (
+        <p>
+            <Link to="/login" className="btn btn-primary">Log In</Link> or <Link to="/signup" className="btn btn-success">Sign Up</Link>
+        </p>
+    )}
+</div>
   );
 }
 

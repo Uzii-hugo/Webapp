@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import PostsData from '../Data/PostsData'
 import Card from './Card';
 
+
 class Home extends Component {
 constructor() {
   super();
