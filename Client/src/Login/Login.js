@@ -1,35 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import auth from '../firebase';
+import {NavLink} from 'react-router-dom';
+import Dashboard from '../Dashboard/Dashboard';
 
 
-function Login(props) {
-  // const username = useFormInput('');
-  // const password = useFormInput('');
-  const [username, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+function Login() {
+  const [session, setSession] = useState({
+    isLoggedIn: true,
+    currentUser: null,
+    errorMessage: null
+  });
 
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const handleAuth = auth.onAuthStateChanged(user => {
+      if (user) {
+        setSession({
+          isLoggedIn: false,
+          currentUser: user,
+          errorMessage: null
+        });
+      }
+    });
 
-  // handle button click of login form
-  const handleLogin = () => {
-    console.log(username,password)
-    // props.history.push('/dashboard');
+    return () => {
+      handleAuth();
+    };
+  }, []);
 
-  }
 
-  const handleUsername = e => {
-    setUserName(e.target.value);
-  }
 
-  const handlePassword = e => {
-    setPassword(e.target.value);
-  }
+  // // const username = useFormInput('');
+  // // const password = useFormInput('');
+  // const [username, setUserName] = useState('');
+  // const [password, setPassword] = useState('');
+
+  // const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+
+  // // handle button click of login form
+  // const handleLogin = () => {
+  //   console.log(username,password)
+  //   // props.history.push('/dashboard');
+
+  // }
+
+  // const handleUsername = e => {
+  //   setUserName(e.target.value);
+  // }
+
+  // const handlePassword = e => {
+  //   setPassword(e.target.value);
+  // }
 
   return (
-    <div className = 'loginbody'>
-        <SignIn/>
+    <div className = 'loginbody'>{
+      session.isLoggedIn ? (<Dashboard />): (<SignIn setSession = {setSession}/>)
+      
+    }
+        
     </div>
   );
 }
