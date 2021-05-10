@@ -22,11 +22,9 @@ render(){
   console.log(this.state.posts);
   return (
     <>
-      <div className = 'container'>
       {Object
           .keys(this.state.posts)
           .map(key => <Card key={key} index={key} details={this.state.posts[key]}/>)}
-      </div>
     </>
   );
 }
