@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
 
 function Login(props) {
   // const username = useFormInput('');
@@ -25,19 +28,9 @@ function Login(props) {
   }
 
   return (
-    <>
-      <div className= 'login'>
-        <h1>Login</h1>
-        <div> Username
-          <input type="email" placeholder="Email" onChange={handleUsername} />
-        </div>
-        <div> Password
-          <input type="password" placeholder="Password" onChange={handlePassword}/>
-        </div>
-          {error && <><small style={{ color: 'red' }}>{error}</small></>}
-        <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
-      </div>
-    </>
+    <div className = 'loginbody'>
+        <SignIn/>
+    </div>
   );
 }
 

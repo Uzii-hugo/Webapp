@@ -1,6 +1,5 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import PostsData from '../Data/PostsData';
 function Button() {
   return(
       <button className="button button-primary">
@@ -37,19 +36,13 @@ function CardBody(props) {
   
 }
 
-function Card() {
-  // let list = PostsData.map((m) =>{
-  //   return (
-  //     <article className="card">
-  //       <CardHeader image={m.image}/>
-  //       <CardBody title={m.title} text={m.text}/>
-  //     </article>
-  //   );
-  // });
+function Card(props) {
+  const {category, image, title, text} = props.details;
+  
   return (
       <article className="card">
-        <CardHeader image={'https://source.unsplash.com/user/erondu/600x400'}/>
-        <CardBody title={'What happened in Thialand?'} text={'Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence'}/>
+        <CardHeader category={category} image={image}/>
+        <CardBody title={title} text={text}/>
       </article>
     );
 };
