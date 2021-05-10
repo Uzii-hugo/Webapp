@@ -1,10 +1,12 @@
 import React from 'react';
+import {useHistory} from "react-router-dom"
 
-function Dashboard(props) {
+function Dashboard() {
+  const history = useHistory();
 
   // handle click event of logout button
   const handleLogout = () => {    
-    props.history.push('/login');
+    history.push('/login');
   }
 
   return (
