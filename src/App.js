@@ -1,9 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter,NavLink,Route,Switch} from 'react-router-dom';
 
 import Login from './Login/Login';
 import Dashboard from './Dashboard/Dashboard';
 import Home from './home/Home';
+import SignUp from './Login/SignUp';
+import SignIn from './Login/SignIn';
 
 function App() {
   return (
@@ -17,13 +19,13 @@ function App() {
               <NavLink activeClassName="active" to="/login" className= "rightbar">Login</NavLink>
             </nav>
           </header>
-          <div className="content">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/login" component={Login} />
+          <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/login" component={Login} />
+                <Route path="/SignUp" component={SignUp} />
+                <Route path="/SignIn" component={SignIn} />
             </Switch>
-          </div>
         </div>
       </BrowserRouter>
     </div>
