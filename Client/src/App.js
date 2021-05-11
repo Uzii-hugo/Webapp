@@ -7,6 +7,8 @@ import Home from './home/Home';
 import Navbar from './home/Navbar';
 import SignUp from './Login/SignUp';
 import SignIn from './Login/SignIn';
+import NavLogIn from './home/NavLog';
+import NavOut from './home/NavOut';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/SignUp" component={SignUp} />
                 <Route path="/SignIn" component={SignIn} />
+                <Route path="/navlogin" component={NavLogIn} />
+                <Route path="/navout" component={NavOut} />
             </Switch>
         </div>
       </BrowserRouter>
