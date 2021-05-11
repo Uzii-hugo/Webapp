@@ -5,18 +5,6 @@ import { Link } from 'react-router-dom'
 
 
 class Tarot extends Component {
-// constructor() {
-//   super();
-    
-
-//   }
-// }
-// componentWillMount() {
-//   this.setState({
-//     posts: PostsData
-    
-//   });
-// }
 render(){
   return (
     <>
