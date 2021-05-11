@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
-import {NavLink} from 'react-router-dom';
+import {NavLink,Redirect} from 'react-router-dom';
 import auth from '../firebase/config1';
 
 
 const SignUp =() => {
     
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currenUser, setCurrenUser] = useState(null);
 
     const handleSubmit = (e) => {
         e.prevenDefault();
-        const { email, password , name , sername} = e.target.elements;
+        const { email, password } = e.target.elements;
 
         try{
             auth.auth().createUserWithEmailAndPassword(email.value,password.value);
-            setCurrentUser(true);
+            setCurrenUser(true);
         }catch(error){
             alert(error);
         }
     }
+
+    if (currenUser) {
+        return <Redirect to="/SignIn" />
+    }
         return(
+            <>
             <div className="login">
             <form onSubmit = {handleSubmit}>
                 <h1>Sign Up</h1>
@@ -28,8 +33,7 @@ const SignUp =() => {
                     <a className="social"><i className="fa fa-google"></i></a>
                     <a className="social"><i className="fa fa-linkedin"></i></a>
                 </div>
-                <input type="name" name = "name"placeholder="Name" />
-                <input type="sername" name = "sername"placeholder="Sername" />
+                
                 <input type="email" name = "email"placeholder="Email" />
                 <input type="password" name ="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
@@ -39,6 +43,7 @@ const SignUp =() => {
                 </a>
             </form>
         </div>
+        </>
         )
 }
 
