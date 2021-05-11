@@ -3,7 +3,7 @@ import SignIn from './SignIn';
 import {AuthContext} from './Auth'
 import SignUp from './SignUp';
 import auth from '../firebase';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 import Dashboard from '../Dashboard/Dashboard';
 
 
@@ -58,12 +58,11 @@ function Login() {
 
   return (
     <div className="container mt-5">
-    <h1>Home</h1>
     {currenUser ? (
         <p>You are logged in - <Link to="/dashboard">View Dashboard</Link></p>
     ) : (
         <p>
-            <Link to="/login" className="btn btn-primary">Log In</Link> or <Link to="/signup" className="btn btn-success">Sign Up</Link>
+            <SignIn></SignIn>
         </p>
     )}
 </div>

@@ -1,11 +1,13 @@
 import React, {useState,useEffect} from 'react';
 import auth from '../firebase/config1';
-
+import TaroData from "../Data/TaroData";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) =>{
     const [loading , setLoading] = useState(true);
     const [currenUser, setCurrenUser] = useState(null);
+
+    
 
     useEffect(() =>{
         auth.auth().onAuthStateChanged((user) =>{
@@ -20,7 +22,13 @@ export const AuthProvider = ({children}) =>{
     }
 
     return(
-        <AuthContext.Provider value= {{currenUser}}>
+        <AuthContext.Provider value= {
+            {
+            currenUser,
+            }
+            
+            
+            }>
             {children}
         </AuthContext.Provider>
     )
