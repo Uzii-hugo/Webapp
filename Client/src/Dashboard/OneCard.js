@@ -60,7 +60,7 @@ const OneCard =() =>{
 
     function toggleDesc() {
             console.log("Click");
-            // (`#${tarot.id}-desc`).slideToggle(400);
+            
           }
     const tarotlist = td.map((tarot) =>
     { 
