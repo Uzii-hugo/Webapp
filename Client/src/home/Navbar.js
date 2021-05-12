@@ -4,7 +4,7 @@ import {AuthContext} from '../Login/Auth';
 import auth from '../firebase/config1';
 const Navbar = ()=>{
   
-    const [text, setText] = useState('Login');
+  
     const {currenUser} = useContext(AuthContext);
     if (currenUser) {
         return (

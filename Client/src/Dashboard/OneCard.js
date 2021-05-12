@@ -1,5 +1,6 @@
 import React, {Component,useState} from 'react';
 import TaroData from '../Data/TaroData'
+import Tarot from './TarotCard'
 // class OneCard extends Component{
 //     constructor() {
 //         super();
@@ -33,15 +34,44 @@ import TaroData from '../Data/TaroData'
 const OneCard =() =>{
 
     const [tarotDeck, setTarotDeck] = useState([...TaroData]);
-   
+    
     
     // console.log(tarolist);
-    const tarolist = tarotDeck.map((taro) =><img src = { taro.image}></img> )
-    console.log(tarotDeck);
+    
+    const test = array => {
+    let i = 0;
+    let j = 0;
+    let temp = null;
+    for (i = array.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+}
+
+    const [td,setTd] = useState(test(tarotDeck));
+    console.log(td);
+
+    // const imageClick = () => {
+    //     console.log('Click');
+    //   } 
+
+    function toggleDesc() {
+            console.log("Click");
+            // (`#${tarot.id}-desc`).slideToggle(400);
+          }
+    const tarotlist = td.map((tarot) =>
+    { 
+        
+    return <img src = {tarot.image} key={tarot.id} onClick={toggleDesc} ></img> 
+    })
+
 
     return(
         <>
-         {tarolist}
+         {tarotlist}
       
         </>
     )
