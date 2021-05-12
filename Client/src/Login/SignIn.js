@@ -67,9 +67,7 @@ const SignIn = () =>{
                 <input type="password" placeholder="Password" name = "password"/>
                 <a href="#">Forgot your password?</a>
                 <button type="submit" >Sign In</button>
-                <a>
                 <NavLink activeClassName="active" to="/SignUp" > <i className="fa fa-chevron-right"></i>Sign Up</NavLink>
-                </a>
             </form>
         </div>
     );

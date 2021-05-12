@@ -39,9 +39,7 @@ const SignUp =() => {
                 <input type="password" name ="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
                 <button type="submit">Sign Up</button>
-                <a>
-                    <NavLink activeClassName="active" to="/SignIn" > <i className="fa fa-chevron-right"></i>Sign In</NavLink>
-                </a>
+                 <NavLink activeClassName="active" to="/SignIn" > <i className="fa fa-chevron-right"></i>Sign In</NavLink>
             </form>
         </div>
         </>
