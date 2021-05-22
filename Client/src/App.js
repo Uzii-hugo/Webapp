@@ -15,17 +15,19 @@ function App() {
     <AuthProvider>
       <div className="App">
       <BrowserRouter>
-        <div>
+        
          <Navbar></Navbar>
           <Switch>
-                <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Home} />
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/SignUp" component={SignUp} />
                 <Route path="/SignIn" component={SignIn} />
                 <Route path="/navlogin" component={NavLogIn} />
                 <Route path="/navout" component={NavOut} />
+               
+                {}
             </Switch>
-        </div>
+     
       </BrowserRouter>
     </div>
     </AuthProvider>
