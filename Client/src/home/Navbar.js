@@ -10,6 +10,7 @@ const Navbar = ()=>{
         return (
         <header className="homehead">
         <nav className="header">
+
             <NavLink exact activeClassName="active" to="/">หน้าหลัก</NavLink>
             <NavLink activeClassName="active" to="/dashboard">ดูดวง</NavLink>
             <NavLink activeClassName="active" to="/SignIn" className= "rightbar">Logout</NavLink>
@@ -19,14 +20,20 @@ const Navbar = ()=>{
     }
     
     return(
-      
-      <header className="homehead">
+    <header className="homehead">
       <nav className="header">
-          <NavLink exact activeClassName="active" to="/">หน้าหลัก</NavLink>
-          <NavLink activeClassName="active" to="/dashboard">ดูดวง</NavLink>
-          <NavLink activeClassName="active" to="/SignIn" className= "rightbar">Login</NavLink>
+        {/* <img
+            src = '../img/logo.png'
+            width="30"
+            height="30"
+            className="logo"
+            // alt="logo"
+        /> */}
+        <NavLink exact activeClassName="active" to="/">หน้าหลัก</NavLink>
+        <NavLink activeClassName="active" to="/dashboard">ดูดวง</NavLink>
+        <NavLink activeClassName="active" to="/SignIn" className= "rightbar">Login</NavLink>
       </nav>
-  </header>)
+    </header>)
       
     
 }
