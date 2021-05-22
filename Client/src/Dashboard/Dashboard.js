@@ -1,18 +1,23 @@
-import React from 'react';
+import React ,{useContext} from 'react';
+import {Redirect} from "react-router-dom"
+import {AuthContext} from '../Login/Auth'
+import Tarot from './Tarot'
+import auth from '../firebase/config1';
 
-function Dashboard(props) {
+const Dashboard = () =>{
+      const {currenUser} = useContext(AuthContext);
+      
+      if (!currenUser) {
+        return <Redirect to="/SignIn" />;
+    }
+    
 
-  // handle click event of logout button
-  const handleLogout = () => {    
-    props.history.push('/login');
-  }
+    return (
+        <Tarot>
+            
+        </Tarot>
+    )
 
-  return (
-    <div>
-      Welcome User!<br /><br />
-      <input type="button" onClick={handleLogout} value="Logout" />
-    </div>
-  );
 }
 
 export default Dashboard;
