@@ -4,10 +4,11 @@ const TarotCard = props => {
   return (
     <img
       src={props.src}
-      alt={props.alt}
-      className={"card animated flipInY delay-" + props.delay + "s"}
-      value={props.id}
-      onClick={props.onClick}
+      key={props.key}
+      // alt={props.alt}
+      // className={"card animated flipInY delay-" + props.delay + "s"}
+      // value={props.id}
+      // onClick={props.onClick}
     />
   );
 };

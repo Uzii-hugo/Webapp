@@ -9,11 +9,12 @@ const SignUp =() => {
     const [currenUser, setCurrenUser] = useState(null);
 
     const handleSubmit = (e) => {
-        e.prevenDefault();
+        e.preventDefault();
         const { email, password } = e.target.elements;
 
         try{
-            auth.auth().createUserWithEmailAndPassword(email.value,password.value);
+            const response = auth.auth().createUserWithEmailAndPassword(email.value,password.value);
+            console.log(response);
             setCurrenUser(true);
         }catch(error){
             alert(error);
@@ -21,7 +22,7 @@ const SignUp =() => {
     }
 
     if (currenUser) {
-        return <Redirect to="/SignIn" />
+        return <Redirect to="/dashboard" />
     }
         return(
             <>
@@ -38,9 +39,7 @@ const SignUp =() => {
                 <input type="password" name ="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
                 <button type="submit">Sign Up</button>
-                <a>
-                    <NavLink activeClassName="active" to="/SignIn" > <i className="fa fa-chevron-right"></i>Sign In</NavLink>
-                </a>
+                 <NavLink activeClassName="active" to="/SignIn" > <i className="fa fa-chevron-right"></i>Sign In</NavLink>
             </form>
         </div>
         </>
