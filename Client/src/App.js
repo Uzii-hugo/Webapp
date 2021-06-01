@@ -19,7 +19,7 @@ function App() {
       
         <div className="App">
           <BrowserRouter>
-            <div>
+            <div className ="homehead">
               <Navbar></Navbar>
               <Switch>
                 <Route exact path="/" component={Home} />

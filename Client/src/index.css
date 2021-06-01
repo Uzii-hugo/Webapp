@@ -199,12 +199,17 @@ body {
   height: 700px;
   display: inline;
 }
-footer{
-  border: 2px solid black;
-  background-color: blue;
+
+.banner{
+  display: block;
+  margin: 0 auto;
+  /* padding: 15px; */
 }
-
-
+.ContainerCard{
+  display: block;
+  margin: 0 auto;
+  padding: 15px;
+}
 
 
 /*animation*/
