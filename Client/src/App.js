@@ -1,15 +1,11 @@
 import React from 'react';
 import { BrowserRouter,NavLink,Route,Switch} from 'react-router-dom';
 import {AuthProvider} from './Login/Auth'
-import {Provider} from './context/context'
-import Login from './Login/Login';
 import Dashboard from './Dashboard/Dashboard';
 import Home from './home/Home';
 import Navbar from './home/Navbar';
 import SignUp from './Login/SignUp';
 import SignIn from './Login/SignIn';
-import NavLogIn from './home/NavLog';
-import NavOut from './home/NavOut';
 import TheeCard from './Dashboard/TheeCard';
 import OneCard from './Dashboard/OneCard';
 

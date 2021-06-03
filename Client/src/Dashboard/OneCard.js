@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
 import TaroData from '../Data/TaroData'
-import Tarot from './TarotCard'
 import BackTarot from '../img/BackToro.png'
 import Show from './ShowOneCard';
 
