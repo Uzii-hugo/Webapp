@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import SignIn from './SignIn';
 import { AuthContext } from './Auth'
-import SignUp from './SignUp';
-import auth from '../firebase';
-import { Link, Redirect } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
+import { Link } from 'react-router-dom';
+
 
 
 function Login() {

@@ -1,5 +1,5 @@
 import React, {useContext,useState}from 'react';
-import { BrowserRouter,NavLink,Route,Switch,Redirect} from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import {AuthContext} from '../Login/Auth';
 import auth from '../firebase/config1';
 const Navbar = ()=>{
