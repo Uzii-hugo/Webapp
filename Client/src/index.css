@@ -250,6 +250,7 @@ body {
   height: auto;
   margin: 0 auto;
 }
+<<<<<<< HEAD
 .ContainerCard h1{
   text-align: center;
   color: #ffffff;
@@ -264,6 +265,21 @@ body {
   height: auto;
   background: white;
   border-radius: 30px;
+=======
+
+.Tarot-size{
+  display: inline-block;
+  margin: 0 auto;
+  width: 80px;
+  padding: 5px;
+  
+}
+.Main-backCard{
+  display: block;
+  margin: 0 auto;
+  border: 10px solid black;
+
+>>>>>>> boss
 }
 /*animation*/
 @keyframes fadein {
@@ -294,3 +310,4 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+

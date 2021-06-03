@@ -1,44 +1,29 @@
-import React, {Component,useState} from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import TaroData from '../Data/TaroData'
 import Tarot from './TarotCard'
-// class OneCard extends Component{
-//     constructor() {
-//         super();
-          
-//         this.state = {
-//           posts: {}
-//         }
-//       }
+import BackTarot from '../img/BackToro.png'
+import Show from './ShowOneCard';
 
-//       componentWillMount() {
-//         this.setState({
-//           posts: TaroData
-          
-//         });
-//       }
-//     render(){
-//         console.log(this.componentWillMount);
-//         console.log(this.state.posts);
-//         return(
-//             <>
-//             hi one card
-//             </>
-//         )
-//     }
+const OneCard = () => {
+  const [showTCD, setShowTCD] = useState(true);
+  const [tarotDeck, setTarotDeck] = useState([...TaroData]);
+  const [count, setCount] = useState(0);
+  const [id, setId] = useState([]);
+  const [td, setTd] = useState([]);
 
+  useEffect(() => {
+    const ran = test(tarotDeck);
+    setTd(ran);
+  }, [])
 
-// }
+  useEffect(() => {
+    console.log(id);
+    console.log(count);
+    console.log('new' + Array.from(new Set(id)))
 
+  }, [id])
 
-
-const OneCard =() =>{
-
-    const [tarotDeck, setTarotDeck] = useState([...TaroData]);
-    
-    
-    // console.log(tarolist);
-    
-    const test = array => {
+  const test = array => {
     let i = 0;
     let j = 0;
     let temp = null;
@@ -49,31 +34,47 @@ const OneCard =() =>{
       array[j] = temp;
     }
     return array;
-}
+  }
 
-    const [td,setTd] = useState(test(tarotDeck));
-    console.log(td);
+  
+  function toggleDesc(prop) {
 
-    // const imageClick = () => {
-    //     console.log('Click');
-    //   } 
+    if (count < 1) {
+      setId([...id, prop]);
+      setCount(count + 1);
 
-    function toggleDesc() {
-            console.log("Click");
-            
-          }
-    const tarotlist = td.map((tarot) =>
-    { 
-        
-    return <img src = {tarot.image} key={tarot.id} onClick={toggleDesc} ></img> 
-    })
+    }
+    else {
+      alert("เลือกไพ่ครบ 1 ใบแล้ว");
+    }
+  }
 
+  const handleSubmit = (e) => {
+    // e.preventDefault();
 
-    return(
+    setShowTCD(false);
+  }
+
+  const tarotlist = td.map((tarot) => { 
+    return <div ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />  </div>
+  })
+
+  return (
+    <>
+      {showTCD ? (
         <>
-         {tarotlist}
-      
+        {tarotlist}
+        <button onClick={handleSubmit} >ทำนาย</button>
         </>
-    )
+      ) : (
+        <p>
+          <Show id={id} card={TaroData}></Show>
+        </p>
+      )
+      }
+      
+
+    </>
+  )
 }
 export default OneCard
