@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import auth from '../firebase/config1';
-
 import 'font-awesome/css/font-awesome.min.css';
 import { NavLink, Redirect } from 'react-router-dom';
 import { AuthContext } from './Auth'
@@ -12,13 +11,20 @@ const SignIn = () => {
 
         const { email, password } = e.target.elements;
 
-        try {
-            auth.auth().signInWithEmailAndPassword(email.value, password.value);
+         try {
+            const check = auth.auth().signInWithEmailAndPassword(email.value, password.value).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log(errorCode);
+                console.log(errorMessage);
+            });
+            //console.log(check);
         } catch (error) {
             alert(error);
+            
         }
     }
-
     const { currenUser } = useContext(AuthContext);
     if (currenUser) {
         return <Redirect to="/dashboard" />
