@@ -26,8 +26,6 @@ function App() {
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/SignUp" component={SignUp} />
                 <Route path="/SignIn" component={SignIn} />
-                <Route path="/navlogin" component={NavLogIn} />
-                <Route path="/navout" component={NavOut} />
                 <Route path='/theecard' component={TheeCard} />
                 <Route path='/onecard' component={OneCard} />
               </Switch>
