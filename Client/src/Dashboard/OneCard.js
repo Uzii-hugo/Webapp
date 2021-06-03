@@ -79,7 +79,7 @@ const OneCard = () => {
   const tarotlist = td.map((tarot) => {
 
     // return <img src = {tarot.image} key={tarot.id} onClick={toggleDesc} ></img> 
-    return <div  ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={(e) => {   toggleDesc(tarot.id) }  }/>  </div>
+    return <div  ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={() => {   toggleDesc(tarot.id) }  }/>  </div>
     
   })
 
