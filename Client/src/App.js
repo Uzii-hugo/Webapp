@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter,NavLink,Route,Switch} from 'react-router-dom';
 import {AuthProvider} from './Login/Auth'
-import {Provider} from './context/context'
-import Login from './Login/Login';
 import Dashboard from './Dashboard/Dashboard';
 import Home from './home/Home';
 import Navbar from './home/Navbar';
@@ -12,12 +10,15 @@ import NavLogIn from './home/NavLog';
 import NavOut from './home/NavOut';
 import TheeCard from './Dashboard/TheeCard';
 import OneCard from './Dashboard/OneCard';
+import PickUp from './Dashboard/Pickup';
+import Proflie from './Dashboard/proflie';
+import waiting from './context/404'
 
 function App() {
   return (
     <AuthProvider>
       
-        <div className="App">
+        <div>
           <BrowserRouter>
             <div className ="homehead">
               <Navbar></Navbar>
@@ -30,6 +31,9 @@ function App() {
                 <Route path="/navout" component={NavOut} />
                 <Route path='/theecard' component={TheeCard} />
                 <Route path='/onecard' component={OneCard} />
+                <Route path='/PickUp' component={PickUp}/>
+                <Route path='/proflie' component={Proflie}/>
+                <Route path='/404' component={waiting}/>
               </Switch>
             </div>
           </BrowserRouter>

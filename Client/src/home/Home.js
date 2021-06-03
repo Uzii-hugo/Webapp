@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import PostsData from '../Data/PostsData'
 import Card from './Card';
-import Image from '../img/Astrology.png';
+import Image from '../img/background-1.png';
 
 
 class Home extends Component {
@@ -23,14 +23,14 @@ render(){
   console.log(this.componentWillMount);
   console.log(this.state.posts);
   return (
-    <>
+    <div>
       <img src = {Image} className ="banner"/>
-      <div className ="ContainerCard">
+      <div className ="ContainerCard"> <h1>New Content.</h1>
         {Object
             .keys(this.state.posts)
             .map(key => <Card key={key} index={key} details={this.state.posts[key]}/>)}
       </div>
-    </>
+    </div>
   );
 }
 }
