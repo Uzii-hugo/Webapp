@@ -1,20 +1,20 @@
-import React, {useContext,useState}from 'react';
-import {AuthContext} from '../Login/Auth';
-const Text = () =>{
+// import React, {useContext,useState}from 'react';
+// import {AuthContext} from '../Login/Auth';
+// const Text = () =>{
     
-    const [currenUser] = useContext(AuthContext);
-    const [current, setCurrent] = useState('Login');
+//     const [currenUser] = useContext(AuthContext);
+//     const [current, setCurrent] = useState('Login');
 
-    if(!currenUser){
-        setCurrent('Logout')
-    }
-    const text = current;
-    return(
+//     if(!currenUser){
+//         setCurrent('Logout')
+//     }
+//     const text = current;
+//     return(
         
-        <>
-        {text}
-        </>
-    )
-}
+//         <>
+//         {text}
+//         </>
+//     )
+// }
 
-export default Text;
+// export default Text;
