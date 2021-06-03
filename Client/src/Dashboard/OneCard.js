@@ -1,10 +1,11 @@
-import React, {Component,useState} from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import TaroData from '../Data/TaroData'
 import Tarot from './TarotCard'
+import BackTarot from '../img/BackToro.png'
 // class OneCard extends Component{
 //     constructor() {
 //         super();
-          
+
 //         this.state = {
 //           posts: {}
 //         }
@@ -13,7 +14,7 @@ import Tarot from './TarotCard'
 //       componentWillMount() {
 //         this.setState({
 //           posts: TaroData
-          
+
 //         });
 //       }
 //     render(){
@@ -31,14 +32,20 @@ import Tarot from './TarotCard'
 
 
 
-const OneCard =() =>{
+const OneCard = () => {
 
-    const [tarotDeck, setTarotDeck] = useState([...TaroData]);
-    
-    
-    // console.log(tarolist);
-    
-    const test = array => {
+  const [tarotDeck, setTarotDeck] = useState([...TaroData]);
+  const [count,setCount] = useState(0);
+  const [id,setId] = useState([]);
+  const [td, setTd] = useState([]);
+  // console.log(tarolist);
+
+  useEffect(() =>{
+   const ran = test(tarotDeck);
+   setTd(ran);
+  },[])
+
+  const test = array => {
     let i = 0;
     let j = 0;
     let temp = null;
@@ -49,31 +56,45 @@ const OneCard =() =>{
       array[j] = temp;
     }
     return array;
-}
-
-    const [td,setTd] = useState(test(tarotDeck));
-    console.log(td);
-
-    // const imageClick = () => {
-    //     console.log('Click');
-    //   } 
-
-    function toggleDesc() {
-            console.log("Click");
-            
-          }
-    const tarotlist = td.map((tarot) =>
-    { 
-        
-    return <img src = {tarot.image} key={tarot.id} onClick={toggleDesc} ></img> 
-    })
+  }
 
 
-    return(
-        <>
-         {tarotlist}
+  // console.log("td",td);
+
+  // const imageClick = () => {
+  //     console.log('Click');
+  //   } 
+
+  function toggleDesc(prop) {
+    //  if(id.includes(prop) == false|| id.length == 0){
+    setId([...id,prop]);
+    // }
+    // else {
+    console.log(id)
+    // }
+    
+    
+
+  }
+  const tarotlist = td.map((tarot) => {
+
+    // return <img src = {tarot.image} key={tarot.id} onClick={toggleDesc} ></img> 
+    return <div  ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={(e) => {   toggleDesc(tarot.id) }  }/>  </div>
+    
+  })
+
+  // const backTarot = () => {
+
+  //  return <img className = "Tarot-size" src = {BackTarot}  onClick={toggleDesc} ></img>;}
+
+  // console.log(id)
+  return (
+    <div className = "Main-backCard">
       
-        </>
-    )
+         {tarotlist} 
+
+
+    </div>
+  )
 }
 export default OneCard
