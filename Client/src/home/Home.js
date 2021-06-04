@@ -1,6 +1,5 @@
 
 import React, { Component, useEffect, useState } from 'react';
-import PostsData from '../Data/PostsData'
 import Card from './Card';
 import firebase from '../firebase/config1'
 import Image from '../img/background-1.png';
