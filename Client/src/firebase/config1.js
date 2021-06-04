@@ -2,12 +2,13 @@ import firebase from 'firebase';
 import 'firebase/auth';
 
 const firebaseConfig = firebase.initializeApp({
-    apiKey: "AIzaSyDLZ3MrDd-32ClKszYHLSZRh6rAjotXipw",
-    authDomain: "login-tarot.firebaseapp.com",
-    projectId: "login-tarot",
-    storageBucket: "login-tarot.appspot.com",
-    messagingSenderId: "483480214086",
-    appId: "1:483480214086:web:1f5482c4c04064b8ed4847"
+    apiKey: "AIzaSyDfYbhAkhDwPwO6eB8XJk13BdqcmytuETI",
+    authDomain: "database-tarot.firebaseapp.com",
+    databaseURL: "https://database-tarot-default-rtdb.firebaseio.com/",
+    projectId: "database-tarot",
+    storageBucket: "database-tarot.appspot.com",
+    messagingSenderId: "210225345482",
+    appId: "1:210225345482:web:99f1687d89c1f00f019533"
 });
 
 export default firebaseConfig;

@@ -45,12 +45,12 @@ function CardBody(props) {
 }
 
 function Card(props) {
-  const { category, image, title, text } = props.details;
+  const { content, img, title, date } = props.details;
 
   return (
     <article className="card">
-      <CardHeader category={category} image={image} />
-      <CardBody title={title} text={text} id={props.index} details={props.details} />
+      <CardHeader category={ title} image={img} />
+      <CardBody title={title} text={title} id={props.index} details={props.details} />
     </article>
   );
 };

@@ -10,7 +10,7 @@ const Home = () =>{
     
   useEffect (() => {
 
-      const todoRef = firebase.database().ref('Todo');
+      const todoRef = firebase.database().ref('BlogDB');
 
       todoRef.on('value', (snapshot) => {
           const todos = snapshot.val();
