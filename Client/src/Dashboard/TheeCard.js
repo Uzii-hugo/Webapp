@@ -1,9 +1,12 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import TaroData from '../Data/TaroData'
 import BackTarot from '../img/BackToro.png'
+import { AuthContext } from '../Login/Auth'
 import Show from './ShowTheeCard';
+import { Redirect } from "react-router-dom"
 
 const TheeCard = () => {
+    const { currenUser } = useContext(AuthContext);
     const [showTCD, setShowTCD] = useState(true);
     const [tarotDeck, setTarotDeck] = useState([...TaroData]);
     const [count, setCount] = useState(0);
@@ -11,8 +14,12 @@ const TheeCard = () => {
     const [td, setTd] = useState([]);
 
     useEffect(() => {
+
+
         const ran = test(tarotDeck);
         setTd(ran);
+
+
     }, [])
 
     useEffect(() => {
@@ -21,6 +28,8 @@ const TheeCard = () => {
         console.log('new' + Array.from(new Set(id)))
 
     }, [id])
+
+
 
     const test = array => {
         let i = 0;
@@ -60,7 +69,7 @@ const TheeCard = () => {
 
     return (
         <>
-            {showTCD ? (
+            {currenUser ? (showTCD ? (
                 <>
                     {tarotlist}
                     <button onClick={handleSubmit} >ทำนาย</button>
@@ -69,10 +78,9 @@ const TheeCard = () => {
                 <p>
                     <Show id={id} card={TaroData}></Show>
                 </p>
-            )
+            )) : (<Redirect to="/" />)
+
             }
-
-
         </>
     )
 }

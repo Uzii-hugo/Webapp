@@ -8,7 +8,7 @@ class Tarot extends Component {
   render() {
     return (
       <>
-        <div className="container mt-5">
+        <div className="container">
           <p>
             <Link to="/onecard" className="btn btn-primary">one card</Link> or <Link to="/theecard" className="btn btn-success">thee card</Link>
           </p>

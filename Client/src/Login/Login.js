@@ -9,14 +9,9 @@ function Login() {
   const { currenUser } = useContext(AuthContext);
 
   return (
-<<<<<<< HEAD
     <div className="container">
     {currenUser ? (
-=======
-    <div className="container mt-5">
-      {currenUser ? (
->>>>>>> boss
-        <p>You are logged in - <Link to="/dashboard">View Dashboard</Link></p>
+        <Link to="/">View Dashboard</Link>
       ) : (
         <p>
           <SignIn> </SignIn>

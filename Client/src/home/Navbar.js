@@ -13,11 +13,12 @@ const Navbar = ()=>{
         <nav className="header">
             <img className="logo leftbar" src = {logo} alt="logo"/>
             <NavLink exact activeClassName="active " to="/">หน้าหลัก</NavLink>
-            <NavLink activeClassName="active " to="/dashboard">ดูดวงไพ่ยิปซี</NavLink>
+            <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
             <NavLink activeClassName="active " to="/404">ดูดวงลายมือ</NavLink>
             <NavLink activeClassName="active " to="/404">ดูดวงวันเกิด</NavLink>
-            <NavLink activeClassName="active " to="/SignIn" className= "rightbar">Logout</NavLink>
-            <button  onClick={() => auth.auth().signOut()} className= "rightbar">Sign Out</button>
+            <NavLink activeClassName="active rightbar" to="/proflie">โปรไฟล์</NavLink>
+            <NavLink activeClassName="active " to="/SignIn" className= "rightbar">ออกจากระบบ</NavLink>
+            <button  onClick={() => auth.auth().signOut()} className= "rightbar">ออกจากระบบ</button>
         </nav>
         </header>)
     }
@@ -27,10 +28,10 @@ const Navbar = ()=>{
       <nav className="header">
         <img className="logo leftbar" src = {logo} alt="logo"/>
         <NavLink exact activeClassName="active " to="/">หน้าหลัก</NavLink>
-        <NavLink activeClassName="active " to="/dashboard">ดูดวงไพ่ยิปซี</NavLink>
+        <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
         <NavLink activeClassName="active " to="/404">ดูดวงลายมือ</NavLink>
         <NavLink activeClassName="active " to="/404">ดูดวงวันเกิด</NavLink>
-        <NavLink activeClassName="active " to="/SignIn" className= "rightbar">Login</NavLink>
+        <NavLink activeClassName="active " to="/SignIn" className= "rightbar">เข้าสู่ระบบ</NavLink>
         
       </nav>
     </header>)

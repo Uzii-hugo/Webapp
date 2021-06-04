@@ -22,13 +22,13 @@ const SignUp =() => {
     }
 
     if (currenUser) {
-        return <Redirect to="/dashboard" />
+        return <Redirect to="/" />
     }
         return(
             <>
             <div className="login">
             <form onSubmit = {handleSubmit}>
-                <h1>Sign Up</h1>
+                <h1>สมัครสมาชิก</h1>
                 <ul className="social-container">
                     <li><i className="fa fa-facebook-f"></i></li>
                     <li><i className="fa fa-google"></i></li>
@@ -40,9 +40,9 @@ const SignUp =() => {
                 <input type="date" name = "birthday"placeholder="DD/MM/YYYY" />
                 <input type="email" name = "email"placeholder="Email" />
                 <input type="password" name ="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button type="submit">Sign Up</button>
-                 <NavLink activeClassName="active" to="/SignIn" > <i className="fa fa-chevron-right"></i>Sign In</NavLink>
+                <a href="#">ลืมรหัสผ่าน?</a>
+                <button type="submit">สมัครสมาชิก</button>
+                 <NavLink activeClassName="active" to="/SignIn" > <i className="fa fa-chevron-right"></i>เข้าสู่ระบบ</NavLink>
             </form>
         </div>
         </>
