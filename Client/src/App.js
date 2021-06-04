@@ -11,7 +11,7 @@ import OneCard from './Dashboard/OneCard';
 import Show from './Dashboard/ShowOneCard';
 import PickUp from './Dashboard/Pickup';
 import Proflie from './Dashboard/proflie';
-import waiting from './context/404'
+import Waiting from './context/404'
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
                 <Route path='/show' component={Show}/>
                 <Route path='/PickUp' component={PickUp}/>
                 <Route path='/proflie' component={Proflie}/>
-                <Route path='/404' component={waiting}/>
+                <Route path='/404' component={Waiting}/>
               </Switch>
             </div>
           </BrowserRouter>
