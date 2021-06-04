@@ -9,12 +9,15 @@ import SignIn from './Login/SignIn';
 import TheeCard from './Dashboard/TheeCard';
 import OneCard from './Dashboard/OneCard';
 import Show from './Dashboard/ShowOneCard';
+import PickUp from './Dashboard/Pickup';
+import Proflie from './Dashboard/proflie';
+import waiting from './context/404'
 
 function App() {
   return (
     <AuthProvider>
       
-        <div className="App">
+        <div>
           <BrowserRouter>
             <div className ="homehead">
               <Navbar></Navbar>
@@ -26,6 +29,9 @@ function App() {
                 <Route path='/theecard' component={TheeCard} />
                 <Route path='/onecard' component={OneCard} />
                 <Route path='/show' component={Show}/>
+                <Route path='/PickUp' component={PickUp}/>
+                <Route path='/proflie' component={Proflie}/>
+                <Route path='/404' component={waiting}/>
               </Switch>
             </div>
           </BrowserRouter>

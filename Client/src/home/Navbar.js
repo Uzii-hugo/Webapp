@@ -1,37 +1,37 @@
-import React, {useContext,useState}from 'react';
-import { NavLink} from 'react-router-dom';
+import React, {useContext}from 'react';
+import {NavLink} from 'react-router-dom';
 import {AuthContext} from '../Login/Auth';
 import auth from '../firebase/config1';
+import logo from '../img/logo.png'
 const Navbar = ()=>{
   
   
     const {currenUser} = useContext(AuthContext);
     if (currenUser) {
         return (
-        <header className="homehead">
+        <header>
         <nav className="header">
-
-            <NavLink exact activeClassName="active" to="/">หน้าหลัก</NavLink>
-            <NavLink activeClassName="active" to="/dashboard">ดูดวง</NavLink>
-            <NavLink activeClassName="active" to="/SignIn" className= "rightbar">Logout</NavLink>
+            <img className="logo leftbar" src = {logo} alt="logo"/>
+            <NavLink exact activeClassName="active leftbar" to="/">หน้าหลัก</NavLink>
+            <NavLink activeClassName="active leftbar" to="/dashboard">ดูดวงไพ่ยิปซี</NavLink>
+            <NavLink activeClassName="active leftbar" to="/404">ดูดวงลายมือ</NavLink>
+            <NavLink activeClassName="active leftbar" to="/404">ดูดวงวันเกิด</NavLink>
+            <NavLink activeClassName="active " to="/SignIn" className= "rightbar">Logout</NavLink>
             <button  onClick={() => auth.auth().signOut()} className= "rightbar">Sign Out</button>
         </nav>
         </header>)
     }
     
     return(
-    <header className="homehead">
+    <header>
       <nav className="header">
-        {/* <img
-            src = '../img/logo.png'
-            width="30"
-            height="30"
-            className="logo"
-            // alt="logo"
-        /> */}
-        <NavLink exact activeClassName="active" to="/">หน้าหลัก</NavLink>
-        <NavLink activeClassName="active" to="/dashboard">ดูดวง</NavLink>
-        <NavLink activeClassName="active" to="/SignIn" className= "rightbar">Login</NavLink>
+        <img className="logo leftbar" src = {logo} alt="logo"/>
+        <NavLink exact activeClassName="active leftbar" to="/">หน้าหลัก</NavLink>
+        <NavLink activeClassName="active leftbar" to="/dashboard">ดูดวงไพ่ยิปซี</NavLink>
+        <NavLink activeClassName="active leftbar" to="/404">ดูดวงลายมือ</NavLink>
+        <NavLink activeClassName="active leftbar" to="/404">ดูดวงวันเกิด</NavLink>
+        <NavLink activeClassName="active " to="/SignIn" className= "rightbar">Login</NavLink>
+        
       </nav>
     </header>)
       

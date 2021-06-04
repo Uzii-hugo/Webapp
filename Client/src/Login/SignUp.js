@@ -29,12 +29,15 @@ const SignUp =() => {
             <div className="login">
             <form onSubmit = {handleSubmit}>
                 <h1>Sign Up</h1>
-                <div className="social-container">
-                    <a className="social"><i className="fa fa-facebook-f"></i></a>
-                    <a className="social"><i className="fa fa-google"></i></a>
-                    <a className="social"><i className="fa fa-linkedin"></i></a>
-                </div>
-                
+                <ul className="social-container">
+                    <li><i className="fa fa-facebook-f"></i></li>
+                    <li><i className="fa fa-google"></i></li>
+                    <li><i className="fa fa-linkedin"></i></li>
+                </ul>
+                <input type="name" name = "Name"placeholder="Name" />
+                <input type="sername" name = "Sername"placeholder="Sername" />
+                <input type="number" name = "Phone Number"placeholder="Phone Number" />
+                <input type="date" name = "birthday"placeholder="DD/MM/YYYY" />
                 <input type="email" name = "email"placeholder="Email" />
                 <input type="password" name ="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
