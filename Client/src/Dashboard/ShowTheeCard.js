@@ -4,8 +4,8 @@ const Present = (prop) => {
     const { id, card } = prop;
     return (
         <div>
-            <img className="Tarot-size" src={card[id[0]].image} />
-            <div> {card[id[0]].present}</div>
+            <img className="Tarot-size" src={card[id[1]].image} />
+            <div> {card[id[1]].present}</div>
         </div>
     );
 }
@@ -14,8 +14,8 @@ const Past = (prop) => {
     const { id, card } = prop;
     return (
         <div>
-            <img className="Tarot-size" src={card[id[1]].image} />
-            <div> {card[id[1]].past}</div>
+            <img className="Tarot-size" src={card[id[0]].image} />
+            <div> {card[id[0]].past}</div>
         </div>
     );
 }
@@ -41,8 +41,9 @@ const ShowTheeCard = (prop) => {
     return (
         <>
             <div>
-                <Present id={id} card={card} />
+                
                 <Past id={id} card={card} />
+                <Present id={id} card={card} />
                 <Future id={id} card={card} />
             </div>
         </>
