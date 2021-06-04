@@ -28,7 +28,6 @@ const SignIn = () => {
         <div className="login">
             <form onSubmit={handleSubmit}>
                 <h1>Sign in</h1>
-<<<<<<< HEAD
                 <ul className="social-container">
                     <li><i className="fa fa-facebook-f"></i></li>
                     <li><i className="fa fa-google"></i></li>
@@ -36,15 +35,6 @@ const SignIn = () => {
                 </ul>
                 <input type="email" placeholder="Email" name = "email"/>
                 <input type="password" placeholder="Password" name = "password"/>
-=======
-                <div className="social-container">
-                    <a className="social"><i className="fa fa-facebook-f"></i></a>
-                    <a className="social"><i className="fa fa-google"></i></a>
-                    <a className="social"><i className="fa fa-linkedin"></i></a>
-                </div>
-                <input type="email" placeholder="Email" name="email" />
-                <input type="password" placeholder="Password" name="password" />
->>>>>>> boss
                 <a href="#">Forgot your password?</a>
                 <button type="submit" >Sign In</button>
                 <NavLink activeClassName="active" to="/SignUp" > <i className="fa fa-chevron-right"></i>Sign Up</NavLink>

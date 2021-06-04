@@ -13,8 +13,7 @@ class Home extends Component {
       posts: {}
     }
   }
-<<<<<<< HEAD
-}
+
 componentWillMount() {
   this.setState({
     posts: PostsData
@@ -35,27 +34,5 @@ render(){
     </div>
   );
 }
-=======
-  componentWillMount() {
-    this.setState({
-      posts: PostsData
-
-    });
-  }
-  render() {
-    console.log(this.componentWillMount);
-    console.log(this.state.posts);
-    return (
-      <>
-        <img src={Image} className="banner" />
-        <div className="ContainerCard">
-          {Object
-            .keys(this.state.posts)
-            .map(key => <Card key={key} index={key} details={this.state.posts[key]} />)}
-        </div>
-      </>
-    );
-  }
->>>>>>> boss
 }
 export default Home;
