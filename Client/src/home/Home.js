@@ -32,7 +32,7 @@ const Home = () =>{
       <img src = {Image} className ="banner"/>
      <div className ="ContainerCard"> <h1>New Content.</h1>
      {
-        Object.keys(data).map(key => <Card key={key} index={key} details={data[key]} />)
+        Object.keys(data).map(key => <Card key={key} index={key} details={data[key] } />)
      }  
     </div>  
     </div>

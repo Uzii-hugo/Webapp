@@ -12,6 +12,7 @@ import Show from './Dashboard/ShowOneCard';
 import PickUp from './Dashboard/Pickup';
 import Proflie from './Dashboard/proflie';
 import Waiting from './context/404'
+import ShowContent from './Dashboard/ShowContent'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path='/PickUp' component={PickUp}/>
                 <Route path='/proflie' component={Proflie}/>
                 <Route path='/404' component={Waiting}/>
+                <Route path='/showcontent' component = {ShowContent}/>
               </Switch>
             </div>
           </BrowserRouter>
