@@ -1,37 +1,36 @@
 
-import React, { Component } from 'react';
+import React, { Component,useEffect, useState } from 'react';
 import PostsData from '../Data/PostsData'
 import Card from './Card';
 import Image from '../img/Astrology.png';
+import firebase from '../firebase/config1'
 
+const Home = () =>{
+  const [data, setData] = useState([]);
+    
+  useEffect (() => {
 
-class Home extends Component {
-  constructor() {
-    super();
+      const todoRef = firebase.database().ref('Todo');
 
-    this.state = {
-      posts: {}
-    }
-  }
-  componentWillMount() {
-    this.setState({
-      posts: PostsData
+      todoRef.on('value', (snapshot) => {
+          const todos = snapshot.val();
+          const todoList = [] ;
+          for (let id in todos)
+          {
+              todoList.push({id, ...todos[id] });
 
-    });
-  }
-  render() {
-    console.log(this.componentWillMount);
-    console.log(this.state.posts);
-    return (
-      <>
-        <img src={Image} className="banner" />
-        <div className="ContainerCard">
-          {Object
-            .keys(this.state.posts)
-            .map(key => <Card key={key} index={key} details={this.state.posts[key]} />)}
-        </div>
-      </>
-    );
-  }
+          }
+          setData(todoList);
+          
+      });
+  }, [])
+
+  return(
+    <>
+    { 
+    Object.keys(data).map(key => <Card key={key} index={key} details={data[key]} />)
+    } 
+    </>
+  )
 }
 export default Home;
