@@ -41,7 +41,7 @@ const SignIn = () => {
                         <a className="social"><i className="fa fa-google"></i></a>
                         <a className="social"><i className="fa fa-linkedin"></i></a>
                     </div>
-                    {check ? (<></>):(<div>อีเมลหรือรหัสผ่านไม่ถูกต้อง</div>)}
+                    {check ? (<></>):(<p>อีเมลหรือรหัสผ่านไม่ถูกต้อง</p>)}
                     <input type="email" placeholder="Email" name="email" />
                     <input type="password" placeholder="Password" name="password" />
                     <a href="#">Forgot your password?</a>
