@@ -1,28 +1,55 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TaroData from '../Data/TaroData'
 import BackTarot from '../img/BackToro.png'
+import firebase from '../firebase/config1'
 import Show from './ShowOneCard';
+import Load from './Loading';
 
 const OneCard = () => {
   const [showTCD, setShowTCD] = useState(true);
   const [tarotDeck, setTarotDeck] = useState([...TaroData]);
+  
+  const [tarotList, setTarotList] = useState([]);
   const [count, setCount] = useState(0);
   const [id, setId] = useState([]);
   const [td, setTd] = useState([]);
+  
+
+  // useEffect(() => {
+  //   const ran = test(tarotDeck);
+  //   setTd(ran);
+  // }, [])
+
+  useEffect(()=>{
+    const tarotRef = firebase.database().ref('TarotDB');
+
+    tarotRef.on('value', (snapshot) => {
+      const tarot = snapshot.val();
+      const List = [] ;
+      for (let i in tarot)
+      {
+          List.push({i, ...tarot[i] });
+
+      }
+      console.log(tarot[0].id)
+      setTarotList(tarot);
+      const ran = rand(List);
+      setTd(ran);
+  });
+
+  },[])
+  
+  
 
   useEffect(() => {
-    const ran = test(tarotDeck);
-    setTd(ran);
-  }, [])
 
-  useEffect(() => {
     console.log(id);
     console.log(count);
     console.log('new' + Array.from(new Set(id)))
 
   }, [id])
 
-  const test = array => {
+  const rand = array => {
     let i = 0;
     let j = 0;
     let temp = null;
@@ -58,18 +85,26 @@ const OneCard = () => {
     return <div ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />  </div>
   })
 
+  const time = () =>{
+        setTimeout(() => {
+          console.log('This will run after 1 second!')
+        }, 1000);
+  }
+
   return (
     <>
-      {showTCD ? (
+      {
+      showTCD ? (
         <>
         {tarotlist}
         <button onClick={handleSubmit} >ทำนาย</button>
         </>
       ) : (
         <p>
-          <Show id={id} card={TaroData}></Show>
+            <Show id={id} card={tarotList}></Show>
         </p>
-      )
+      ) 
+      
       }
       
 

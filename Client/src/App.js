@@ -8,6 +8,7 @@ import SignUp from './Login/SignUp';
 import SignIn from './Login/SignIn';
 import TheeCard from './Dashboard/TheeCard';
 import OneCard from './Dashboard/OneCard';
+import Show from './Dashboard/ShowOneCard';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/SignIn" component={SignIn} />
                 <Route path='/theecard' component={TheeCard} />
                 <Route path='/onecard' component={OneCard} />
+                <Route path='/show' component={Show}/>
               </Switch>
             </div>
           </BrowserRouter>

@@ -3,13 +3,13 @@ import React from 'react';
 const ShowOneCard = (prop) => {
 
     const {id, card} = prop;
-    console.log(card[id].image)
+    console.log(card)
     
     return  (
         <>
           <div> 
-              <img className="Tarot-size" src={card[id].image} /> 
-              <div> {card[id].general}</div>
+             <div> {card[id].name} </div>
+             <div> {card[id].meaning}</div>  
           </div>
         </>
       )
