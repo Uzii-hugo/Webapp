@@ -2,7 +2,7 @@ import React, { useState, useEffect,useContext } from 'react';
 import TaroData from '../Data/TaroData'
 import BackTarot from '../img/BackToro.png'
 import firebase from '../firebase/config1'
-import Show from './ShowOneCard';
+import Show from '../context/ShowOneCard';
 import { AuthContext } from '../Login/Auth'
 import { Redirect } from "react-router-dom"
 import Load from './Loading';
@@ -104,9 +104,9 @@ const OneCard = () => {
         <button onClick={handleSubmit} >ทำนาย</button>
         </>
       ) : (
-        <p>
+        <h1>
             <Show id={id} card={tarotList}></Show>
-        </p>
+        </h1>
       ) ):(<Redirect to="/" />)
       
       }

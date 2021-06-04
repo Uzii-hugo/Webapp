@@ -1,30 +1,27 @@
 import React from 'react';
 import { BrowserRouter,NavLink,Route,Switch} from 'react-router-dom';
 import {AuthProvider} from './Login/Auth'
-import Dashboard from './Dashboard/Dashboard';
 import Home from './home/Home';
 import Navbar from './home/Navbar';
 import SignUp from './Login/SignUp';
 import SignIn from './Login/SignIn';
 import TheeCard from './Dashboard/TheeCard';
 import OneCard from './Dashboard/OneCard';
-import Show from './Dashboard/ShowOneCard';
+import Show from './context/ShowOneCard';
 import PickUp from './Dashboard/Pickup';
 import Proflie from './Dashboard/proflie';
 import Waiting from './context/404'
-import ShowContent from './Dashboard/ShowContent'
+import ShowContent from './context/ShowContent'
 
 function App() {
   return (
     <AuthProvider>
-      
         <div>
           <BrowserRouter>
             <div className ="homehead">
               <Navbar></Navbar>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/dashboard" component={Dashboard} />
                 <Route path="/SignUp" component={SignUp} />
                 <Route path="/SignIn" component={SignIn} />
                 <Route path='/theecard' component={TheeCard} />

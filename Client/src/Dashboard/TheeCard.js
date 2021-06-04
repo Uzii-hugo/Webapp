@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import TaroData from '../Data/TaroData'
 import BackTarot from '../img/BackToro.png'
 import { AuthContext } from '../Login/Auth'
-import Show from './ShowTheeCard';
+import Show from '../context/ShowTheeCard';
 import { Redirect } from "react-router-dom"
 
 const TheeCard = () => {
@@ -75,9 +75,9 @@ const TheeCard = () => {
                     <button onClick={handleSubmit} >ทำนาย</button>
                 </>
             ) : (
-                <p>
+                <h1>
                     <Show id={id} card={TaroData}></Show>
-                </p>
+                </h1>
             )) : (<Redirect to="/" />)
 
             }
