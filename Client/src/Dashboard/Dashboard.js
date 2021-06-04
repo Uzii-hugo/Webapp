@@ -1,23 +1,23 @@
-import React, { useContext } from 'react';
-import { Redirect } from "react-router-dom"
-import { AuthContext } from '../Login/Auth'
-import Tarot from './Tarot'
+// import React, { useContext } from 'react';
+// import { Redirect } from "react-router-dom"
+// import { AuthContext } from '../Login/Auth'
+// import Tarot from './Tarot'
 
 
-const Dashboard = () => {
-    const { currenUser } = useContext(AuthContext);
+// const Dashboard = () => {
+//     const { currenUser } = useContext(AuthContext);
 
-    if (!currenUser) {
-        return <Redirect to="/SignIn" />;
-    }
+//     if (!currenUser) {
+//         return <Redirect to="/SignIn" />;
+//     }
 
 
-    return (
-        <Tarot>
+//     return (
+//         <Tarot>
 
-        </Tarot>
-    )
+//         </Tarot>
+//     )
 
-}
+// }
 
-export default Dashboard;
+// export default Dashboard;

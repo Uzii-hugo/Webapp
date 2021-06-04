@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import TaroData from '../Data/TaroData'
 import BackTarot from '../img/BackToro.png'
 import firebase from '../firebase/config1'
 import Show from './ShowOneCard';
+import { AuthContext } from '../Login/Auth'
+import { Redirect } from "react-router-dom"
 import Load from './Loading';
 
 const OneCard = () => {
@@ -13,6 +15,8 @@ const OneCard = () => {
   const [count, setCount] = useState(0);
   const [id, setId] = useState([]);
   const [td, setTd] = useState([]);
+  const { currenUser } = useContext(AuthContext);
+
   
 
   // useEffect(() => {
@@ -40,7 +44,6 @@ const OneCard = () => {
   },[])
   
   
-
   useEffect(() => {
 
     console.log(id);
@@ -91,10 +94,11 @@ const OneCard = () => {
         }, 1000);
   }
 
+  
+
   return (
     <>
-      {
-      showTCD ? (
+      {currenUser ?(showTCD ? (
         <>
         {tarotlist}
         <button onClick={handleSubmit} >ทำนาย</button>
@@ -103,11 +107,9 @@ const OneCard = () => {
         <p>
             <Show id={id} card={tarotList}></Show>
         </p>
-      ) 
+      ) ):(<Redirect to="/" />)
       
       }
-      
-
     </>
   )
 }

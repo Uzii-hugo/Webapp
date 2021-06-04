@@ -28,25 +28,25 @@ const SignIn = () => {
     }
     const { currenUser } = useContext(AuthContext);
     if (currenUser) {
-        return <Redirect to="/dashboard" />
+        return <Redirect to="/" />
     }
 
     return (
         <>
             <div className="login">
                 <form onSubmit={handleSubmit}>
-                    <h1>Sign in</h1>
+                    <h1>เข้าสู่ระบบ</h1>
                     <div className="social-container">
                         <a className="social"><i className="fa fa-facebook-f"></i></a>
                         <a className="social"><i className="fa fa-google"></i></a>
                         <a className="social"><i className="fa fa-linkedin"></i></a>
                     </div>
-                    {check ? (<></>):(<p>อีเมลหรือรหัสผ่านไม่ถูกต้อง</p>)}
+                    {check ? (<></>):(<div>อีเมลหรือรหัสผ่านของคุณไม่ถูกต้อง</div>)}
                     <input type="email" placeholder="Email" name="email" />
                     <input type="password" placeholder="Password" name="password" />
-                    <a href="#">Forgot your password?</a>
-                    <button type="submit" >Sign In</button>
-                    <NavLink activeClassName="active" to="/SignUp" > <i className="fa fa-chevron-right"></i>Sign Up</NavLink>
+                    <a href="#">ลืมรหัสผ่าน?</a>
+                    <button type="submit" >เข้าสู่ระบบ</button>
+                    <NavLink activeClassName="active" to="/SignUp" > <i className="fa fa-chevron-right"></i>สมัครสมาชิก</NavLink>
                 </form>
             </div>
 
