@@ -95,8 +95,7 @@ const OneCard = () => {
     }, 1000);
   }
 
-
-
+  
   return (
     <>
       {currenUser ? (showTCD ? (

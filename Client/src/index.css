@@ -309,117 +309,33 @@ body {
   margin: 0 auto;
   border-radius: 30px;
 }
-.cardPick{
-  display: block;
-  margin: 0 auto;
-  max-width: 90px;
-  padding: 10px 10px 10px;
-
+article {             
+  padding: 30px 0;             
+  display: block;             
+  border-bottom: solid 1px #f5f5f5;             
+  width: 100%;         
 }
-.pick{
-  border: 2px solid #ffffff;
-  width: 25%;
-}
-.pick a{
-  color: #ffffff;
-  font-size: 14px;
+article .title {
   text-decoration: none;
-  text-align: center;
-  padding: 5px;
-}
-.container_pick{
-  margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
-  display: block;
-  border-radius: 20px;
-  background: url("../src/img/purple_blurred_background.jpg") no-repeat center center;
-}
-.container_pick h3{
-  text-align: center;
-  color: #ffffff;
-  padding: 10px;
-}
-.padding{
-  padding: 10px;
+  color: #333337;
+  font-size: 2.4rem;
+  margin-top: 0;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.1;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
-.padding :hover{
-  background-color: gray;
+article .title:hover {
+  color: #b6b6b6;
 }
-.backCard{
-  margin-top: 2%;
-  margin-left: 3%;
-  margin-right: 2%;
+article p {
+  margin: 0 0 10px;
+  font-family: "Droid Serif",serif;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
 }
-.backCard_img{
-  width: 7%;
-  height: auto;
-  padding: 3px;
-  margin: 0 auto;
-
-}
-
-.backCard img:hover{
-  background: rgb(58, 58, 58);
-}
-
-.backCard_con {
-  margin-left: 3%;
-  margin-right: 2%;
-}
-.backCard_con button{
-  background: white;
-  box-shadow: 0px 3px 5px rgba(255, 255, 255, 0.329);
-	border-radius:8px;
-	display:block;
-	cursor:pointer;
-	color:#2E0048;
-	font-size:14px;
-	font-weight:bold;
-	padding:5px 15px;
-	text-decoration:none;
-	font-family: 'Mali',sans-serif;
-	margin: 0 auto;
-}
-.backCard_con button:hover {
-	background:#2E0048;
-  color: white;
-}
-.singleCard{
-  display: block;
-  margin-top: 3%;
-  border: 2px solid #2E0048;
-  border-radius: 20px;
-  width: 550px;
-}
-.singleCard img{
-  width: 180px;
-  padding: 3px;
-}
-.singleCard h1,h3{
-  text-align: center;
-}
-.singleCard p{
-  margin-left: 2%;
-  margin-right: 2%;
-  font-size: 14px;
-  text-indent: 50px;
-  text-align: justify;
-}
-article{
-  font-size: 14px;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-.multiCard_dom{
-  display: block;
-}
-.multiCard_dom img{
-  width: 130px;
-  padding: 3px;
-}
-
 /*animation*/
 @keyframes fadein {
   from { opacity: 0; }

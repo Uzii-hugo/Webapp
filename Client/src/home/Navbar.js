@@ -14,8 +14,9 @@ const Navbar = ()=>{
             <Link to = "/"><img className="logo leftbar" src = {logo} alt="logo"/></Link>
             <NavLink exact activeClassName="active " to="/">หน้าหลัก</NavLink>
             <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
-            <NavLink activeClassName="active " to="/404">ดูดวงลายมือ</NavLink>
-            <NavLink activeClassName="active " to="/404">ดูดวงวันเกิด</NavLink>
+            <NavLink activeClassName="active " to="/Hw">ดูดวงลายมือ</NavLink>
+            <NavLink activeClassName="active " to="/Bd">ดูดวงวันเกิด</NavLink>
+            <NavLink activeClassName="active " to="/CC">สร้างเนื้อหา</NavLink>
             <button  activeClassName="active " onClick={() => auth.auth().signOut()} className= "rightbar logout">ออกจากระบบ</button>
             <NavLink activeClassName="active " to="/proflie"><i class="fa fa-user-circle fa-2x rightbar"></i></NavLink>
         </nav>
@@ -28,8 +29,8 @@ const Navbar = ()=>{
         <Link to = "/"><img className="logo leftbar" src = {logo} alt="logo"/></Link>
         <NavLink exact activeClassName="active " to="/">หน้าหลัก</NavLink>
         <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
-        <NavLink activeClassName="active " to="/404">ดูดวงลายมือ</NavLink>
-        <NavLink activeClassName="active " to="/404">ดูดวงวันเกิด</NavLink>
+        <NavLink activeClassName="active " to="/Hw">ดูดวงลายมือ</NavLink>
+        <NavLink activeClassName="active " to="/Bd">ดูดวงวันเกิด</NavLink>
         <NavLink activeClassName="active " to="/SignIn" className= "rightbar">เข้าสู่ระบบ</NavLink>
         
       </nav>
