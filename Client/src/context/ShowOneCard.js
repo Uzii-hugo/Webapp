@@ -10,7 +10,7 @@ const ShowOneCard = (prop) => {
     return  (
         <>
           <div> 
-            <img src={card[0].img}/> 
+            <img src={card[id].img}/> 
              <div> {card[id].name} </div>
              <div> {card[id].meaning}</div>  
           </div>
