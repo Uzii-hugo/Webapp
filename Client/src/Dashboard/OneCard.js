@@ -1,49 +1,50 @@
-import React, { useState, useEffect,useContext } from 'react';
-import TaroData from '../Data/TaroData'
-import BackTarot from '../img/BackToro.png'
-import firebase from '../firebase/config1'
+import React, { useState, useEffect, useContext } from 'react';
+import TaroData from '../Data/TaroData';
+import BackTarot from '../img/BackToro.png';
+import firebase from '../firebase/config1';
 import Show from '../context/ShowOneCard';
-import { AuthContext } from '../Login/Auth'
-import { Redirect } from "react-router-dom"
+import { AuthContext } from '../Login/Auth';
+import {Link, Redirect } from "react-router-dom";
 import Load from './Loading';
+import Center from 'react-center';
+
 
 const OneCard = () => {
   const [showTCD, setShowTCD] = useState(true);
   const [tarotDeck, setTarotDeck] = useState([...TaroData]);
-  
+
   const [tarotList, setTarotList] = useState([]);
   const [count, setCount] = useState(0);
   const [id, setId] = useState([]);
   const [td, setTd] = useState([]);
   const { currenUser } = useContext(AuthContext);
 
-  
+
 
   // useEffect(() => {
   //   const ran = test(tarotDeck);
   //   setTd(ran);
   // }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     const tarotRef = firebase.database().ref('TarotDB');
 
     tarotRef.on('value', (snapshot) => {
       const tarot = snapshot.val();
-      const List = [] ;
-      for (let i in tarot)
-      {
-          List.push({i, ...tarot[i] });
+      const List = [];
+      for (let i in tarot) {
+        List.push({ i, ...tarot[i] });
 
       }
       console.log(tarot[0].id)
       setTarotList(tarot);
       const ran = rand(List);
       setTd(ran);
-  });
+    });
 
-  },[])
-  
-  
+  }, [])
+
+
   useEffect(() => {
 
     console.log(id);
@@ -65,7 +66,7 @@ const OneCard = () => {
     return array;
   }
 
-  
+
   function toggleDesc(prop) {
 
     if (count < 1) {
@@ -84,31 +85,47 @@ const OneCard = () => {
     setShowTCD(false);
   }
 
-  const tarotlist = td.map((tarot) => { 
-    return <div ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />  </div>
+  const tarotlist = td.map((tarot) => {
+    return <img className="backCard_img" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />
   })
 
-  const time = () =>{
-        setTimeout(() => {
-          console.log('This will run after 1 second!')
-        }, 1000);
+  const time = () => {
+    setTimeout(() => {
+      console.log('This will run after 1 second!')
+    }, 1000);
   }
 
-  
+
 
   return (
     <>
-      {currenUser ?(showTCD ? (
-        <>
-        {tarotlist}
-        <button onClick={handleSubmit} >ทำนาย</button>
-        </>
+      {currenUser ? (showTCD ? (
+        <div className="backCard_con">
+          <h2>ดูดวงรายวันด้วยไพ่ยิปซี</h2>
+          <p>วันนี้มีอะไร?</p>
+          <p>มาดูกันซิว่าดวงคุณวันนี้เป็นยังไงบ้าง ตั้งสมาธิให้มั่น แล้วใช้มือซ้าย เลือกไพ่ใบเดียว แล้วไพ่จะบอกสิ่งที่จะเกิดขึ้นในวันนี้ให้คุณทราบ</p>
+          <p className="center">คุณได้เลือก {count} ใบ</p>
+          <div className="backCard">
+            {tarotlist}
+          </div>
+          <button onClick={handleSubmit} >ทำนาย</button>
+        </div>
       ) : (
-        <h1>
-            <Show id={id} card={tarotList}></Show>
-        </h1>
-      ) ):(<Redirect to="/" />)
-      
+        <>
+          <Center>
+            <div className="singleCard">
+              <h1>คำทำนาย</h1>
+              <Show id={id} card={tarotList}></Show>
+            </div>
+          </Center>
+          <div className="backCard_con">
+            <Link to="/PickUp" >
+              <button>กลับ</button>
+            </Link>
+          </div>
+        </>
+      )) : (<Redirect to="/" />)
+
       }
     </>
   )

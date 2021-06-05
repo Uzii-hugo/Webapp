@@ -1,5 +1,5 @@
 import React, {useContext}from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {AuthContext} from '../Login/Auth';
 import auth from '../firebase/config1';
 import logo from '../img/logo.png'
@@ -11,7 +11,7 @@ const Navbar = ()=>{
         return (
         <header>
         <nav className="header">
-            <img className="logo leftbar" src = {logo} alt="logo"/>
+            <Link to = "/"><img className="logo leftbar" src = {logo} alt="logo"/></Link>
             <NavLink exact activeClassName="active " to="/">หน้าหลัก</NavLink>
             <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
             <NavLink activeClassName="active " to="/404">ดูดวงลายมือ</NavLink>
@@ -25,7 +25,7 @@ const Navbar = ()=>{
     return(
     <header>
       <nav className="header">
-        <img className="logo leftbar" src = {logo} alt="logo"/>
+        <Link to = "/"><img className="logo leftbar" src = {logo} alt="logo"/></Link>
         <NavLink exact activeClassName="active " to="/">หน้าหลัก</NavLink>
         <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
         <NavLink activeClassName="active " to="/404">ดูดวงลายมือ</NavLink>
