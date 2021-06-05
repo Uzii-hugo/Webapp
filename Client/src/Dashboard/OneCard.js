@@ -45,13 +45,12 @@ const OneCard = () => {
   }, [])
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    console.log(id);
-    console.log(count);
-    console.log('new' + Array.from(new Set(id)))
-
-  }, [id])
+  //   console.log(id);
+  //   console.log(count);
+  
+  // }, [id])
 
   const rand = array => {
     let i = 0;
@@ -89,13 +88,8 @@ const OneCard = () => {
     return <img className="backCard_img" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />
   })
 
-  const time = () => {
-    setTimeout(() => {
-      console.log('This will run after 1 second!')
-    }, 1000);
-  }
-
   
+
   return (
     <>
       {currenUser ? (showTCD ? (

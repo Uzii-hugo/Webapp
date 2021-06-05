@@ -16,7 +16,7 @@ function CeateContent(){
     const [progress, setProgress] = useState(0);
     const [img, setUrl] = useState("");
     const { currenUser } = useContext(AuthContext);
-    console.log(currenUser.uid);
+ 
 
 
     const handleSubmit = (e) => {
@@ -27,11 +27,11 @@ function CeateContent(){
         const word = content.value;
         const name = authur.value;
         const dates = date.value;
-      
+        const uid = currenUser.uid;
 
         const todoRef = firebase.database().ref('BlogDB');
         const todo = {
-            currenUser,
+            uid,
             title,
             word,
             name,
@@ -76,7 +76,7 @@ function CeateContent(){
 
     return (
         <div>
-           {currenUser ? (<>
+           {currenUser ? (
            <from onSubmit={handleSubmit} >  
               <h1>Title</h1>
               <input type="text" placeholder="text" name="text" />
@@ -90,9 +90,7 @@ function CeateContent(){
               <progress value={progress} max="100" />
               <button onClick={handleUpload}>Upload</button>
               <button type="submit" >POST</button>
-           
-           </from>
-            </>):( <Redirect to="/" />)
+            </from>):( <Redirect to="/" />)
            }
         </div>
     )
