@@ -110,10 +110,10 @@ function Proflie() {
                 <div className="avatar">
                     {check ? (<img className="images" src="https://i.pinimg.com/originals/76/b3/51/76b351ffa72d83d305a255f0f7b80508.png" />) : (<img className="images" src={img} />)}
 
-                    <input type="file" onChange={handleChangeImages} />
+                    {/* <input type="file" onChange={handleChangeImages} /> */}
 
                 </div>
-                <button onClick={handleUpload}>Upload</button>
+                {/* <button onClick={handleUpload}>Upload</button> */}
                 <div className="container_box">
                     <div className="follower">
                         <p>ผู้ติดตาม: 80k คน</p>
