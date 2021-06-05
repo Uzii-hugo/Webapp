@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import { NavLink, Redirect } from 'react-router-dom';
-import auth from '../firebase/config1';
+import auth from '../firebase/ConfigB';
 
 
 const SignUp = () => {
@@ -13,24 +13,23 @@ const SignUp = () => {
         const { email, password, Name, Surname, birthday, PhoneNumber } = e.target.elements;
 
         try {
-            auth.auth().createUserWithEmailAndPassword(email.value, password.value).then(auth => {
-                console.log(auth.user.uid);
-                // const uid = auth.user.uid;
-                // const name = Name.value;
-                // const surname = Surname.value;
-                // const bd = birthday.value;
-                // const pn = PhoneNumber.value;
-                // const todoRef = auth.database().ref('userDB');
-                // const todo = {
-                //     uid,
-                //     name,
-                //     surname,
-                //     bd,
-                //     pn
+            auth.auth().createUserWithEmailAndPassword(email.value, password.value).then(id => {
+                const uid = id.user.uid;
+                const name = Name.value;
+                const surname = Surname.value;
+                const bd = birthday.value;
+                const pn = PhoneNumber.value;
+                const todoRef = auth.database().ref('userDB');
+                const todo = {
+                    uid,
+                    name,
+                    surname,
+                    bd,
+                    pn
 
-                //     //complete: false
-                // }
-                // todoRef.push(todo)
+                    //complete: false
+                }
+                todoRef.push(todo)
                 setCurrenUser(true);
              })
 
