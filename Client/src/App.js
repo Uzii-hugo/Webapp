@@ -12,6 +12,9 @@ import PickUp from './Dashboard/Pickup';
 import Proflie from './Dashboard/proflie';
 import Waiting from './context/404'
 import ShowContent from './context/ShowContent'
+import BirthdayHoroscope from './context/BirthdayHoroscope'
+import HandWriting from './context/HandWriting'
+import CreateContent from './context/CeateContent'
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
                 <Route path='/proflie' component={Proflie}/>
                 <Route path='/404' component={Waiting}/>
                 <Route path='/showcontent' component = {ShowContent}/>
+                <Route path='/Bd' component = {BirthdayHoroscope}/>
+                <Route path='/Hw' component = {HandWriting}/>
+                <Route path='/CC' component = {CreateContent}/>
               </Switch>
             </div>
           </BrowserRouter>

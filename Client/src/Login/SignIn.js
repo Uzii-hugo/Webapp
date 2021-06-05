@@ -12,16 +12,18 @@ const SignIn = () => {
         const { email, password } = e.target.elements;
 
         try {
-            const r =auth.auth().signInWithEmailAndPassword(email.value, password.value).catch(function (error) {
+            auth.auth().signInWithEmailAndPassword(email.value, password.value).then(auth =>{
+                console.log(5)
+            }).catch(function (error) {
                 // Handle Errors here.
                 setCheck(false);
                 var errorCode = error.code;
                 var errorMessage = error.message;
                 console.log(errorCode);
                 console.log(errorMessage);
-            });
+            })
 
-            console.log(r)
+            
         } catch (error) {
             alert(error);
 
