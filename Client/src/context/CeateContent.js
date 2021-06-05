@@ -23,61 +23,25 @@ function CeateContent(){
         e.preventDefault();
 
         const { text, content, authur, date} = e.target.elements;
-        const t = text.value;
-        const ct = content.value;
-        const at = authur.value;
-        const d = date.value;
+        const title = text.value;
+        const word = content.value;
+        const name = authur.value;
+        const dates = date.value;
       
 
         const todoRef = firebase.database().ref('BlogDB');
         const todo = {
             currenUser,
-            t,
-            d,
-            ct,
-            at
-
-            //complete: false
-        }
-        todoRef.push(todo)
-
-    }
-    const hadleOnChangTitle = (e) => {
-        setTitle(e.target.value);
-        ;
-    }
-
-    const hadleOnChangContent = (e) => {
-        
-        setcontent(e.target.value);
-    }
-
-    const hadleOnChangAuthur = (e) => {
-   
-        setAuthur(e.target.value);
-        
-    }
-
-    const hadleOnChangDate = (e) => {
-   
-        setDate(e.target.value);
-        
-    }
-
-    const creatTodo = () => {
-        const todoRef = firebase.database().ref('BlogDB');
-        const todo = {
-            currenUser,
             title,
-            date,
-            authur,
-            content,
-            img
+            word,
+            name,
+            dates
 
-            //complete: false
         }
         todoRef.push(todo)
+
     }
+   
 
     const handleChangeImages = e => {
         if (e.target.files[0]) {
@@ -128,42 +92,8 @@ function CeateContent(){
               <button type="submit" >POST</button>
            
            </from>
-           
-           
-           
-           
-           
-           
-           
-           
             </>):( <Redirect to="/" />)
-
-
            }
-             {/* Title  
-            <input type='text' onChange= {hadleOnChangTitle} value={title}/>
-            <br />
-            Content 
-            <input type='text' onChange= {hadleOnChangContent} value={content}/>
-            <br />
-            Authur 
-            <input type='text' onChange= {hadleOnChangAuthur} value={authur}/>
-            <br />
-            Date 
-            <input type='text' onChange= {hadleOnChangDate} value={date}/>
-            <br />
-            
-            <br />
-            <br />
-            <progress value={progress} max="100" />
-            <br />
-            <br />
-            <input type="file" onChange={handleChangeImages} />
-            <button onClick={handleUpload}>Upload</button>
-            <br />
-            <button className='post-btn' onClick={creatTodo}>POST</button>
-            {img} */} 
-            
         </div>
     )
 }
