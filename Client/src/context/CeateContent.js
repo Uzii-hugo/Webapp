@@ -1,7 +1,8 @@
 import React, { useState,useContext } from 'react';
 import firebase from '../firebase/config1';
 import { storage } from "../firebase/ConfigB";
-import { AuthContext } from '../Login/Auth'
+import { AuthContext } from '../Login/Auth';
+import { Redirect } from "react-router-dom"
 
 
 function CeateContent(){
@@ -14,9 +15,33 @@ function CeateContent(){
     const [image, setImage] = useState(null);
     const [progress, setProgress] = useState(0);
     const [img, setUrl] = useState("");
-    const { uid } = useContext(AuthContext);
-    console.log(uid)
+    const { currenUser } = useContext(AuthContext);
+    console.log(currenUser.uid);
 
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const { text, content, authur, date} = e.target.elements;
+        const t = text.value;
+        const ct = content.value;
+        const at = authur.value;
+        const d = date.value;
+      
+
+        const todoRef = firebase.database().ref('BlogDB');
+        const todo = {
+            currenUser,
+            t,
+            d,
+            ct,
+            at
+
+            //complete: false
+        }
+        todoRef.push(todo)
+
+    }
     const hadleOnChangTitle = (e) => {
         setTitle(e.target.value);
         ;
@@ -42,7 +67,7 @@ function CeateContent(){
     const creatTodo = () => {
         const todoRef = firebase.database().ref('BlogDB');
         const todo = {
-            uid,
+            currenUser,
             title,
             date,
             authur,
@@ -87,7 +112,35 @@ function CeateContent(){
 
     return (
         <div>
-             Title  
+           {currenUser ? (<>
+           <from onSubmit={handleSubmit} >  
+              <h1>Title</h1>
+              <input type="text" placeholder="text" name="text" />
+              <h1>Content</h1>
+              <input type="text" placeholder="content" name="content" />
+              <h1>Authur</h1>
+              <input type="text" placeholder="authur" name="authur" />
+              <h1>Date</h1>
+              <input type="date" name="date" placeholder="DD/MM/YYYY" />
+              <input type="file" onChange={handleChangeImages} />
+              <progress value={progress} max="100" />
+              <button onClick={handleUpload}>Upload</button>
+              <button type="submit" >POST</button>
+           
+           </from>
+           
+           
+           
+           
+           
+           
+           
+           
+            </>):( <Redirect to="/" />)
+
+
+           }
+             {/* Title  
             <input type='text' onChange= {hadleOnChangTitle} value={title}/>
             <br />
             Content 
@@ -109,10 +162,7 @@ function CeateContent(){
             <button onClick={handleUpload}>Upload</button>
             <br />
             <button className='post-btn' onClick={creatTodo}>POST</button>
-            {img}
-
-            {/* <input type='text' onChange= {hadleOnChangName} value={title}/>
-            <input type='text' onChange= {hadleOnChangText} value={text}/> */}
+            {img} */} 
             
         </div>
     )
