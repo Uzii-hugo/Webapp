@@ -1,5 +1,5 @@
 
-import React, { Component, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import Card from './Card';
 import firebase from '../firebase/config1'
 import Image from '../img/background-1.png';
@@ -29,7 +29,8 @@ const Home = () => {
 
     <div>
       <img src = {Image} className ="banner"/>
-     <div className ="ContainerCard"> <h1>New Content.</h1>
+     <div className ="ContainerCard"> 
+     <h1>New Content.</h1>
      {
         Object.keys(data).map(key => <Card key={key} index={key} details={data[key] } />)
      }  

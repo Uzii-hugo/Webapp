@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
-import TaroData from '../Data/TaroData'
-import BackTarot from '../img/BackToro.png'
-import { AuthContext } from '../Login/Auth'
+import TaroData from '../Data/TaroData';
+import BackTarot from '../img/BackToro.png';
+import { AuthContext } from '../Login/Auth';
 import Show from '../context/ShowTheeCard';
-import { Redirect } from "react-router-dom"
+import { Link,Redirect } from "react-router-dom";
+import Center from 'react-center';
 
 const TheeCard = () => {
     const { currenUser } = useContext(AuthContext);
@@ -64,20 +65,36 @@ const TheeCard = () => {
     }
 
     const tarotlist = td.map((tarot) => {
-        return <div ><img className="Tarot-size" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />  </div>
+        return <img className="backCard_img" src={BackTarot} key={tarot.id} onClick={() => { toggleDesc(tarot.id) }} />
     })
 
     return (
         <>
             {currenUser ? (showTCD ? (
-                <>
-                    {tarotlist}
+                <div className="backCard_con">
+                    <h2>ดูดวงด้วยไพ่ยิปซี</h2>
+                    <p>อดีต ปัจจุบัน อนาคตของคุณเป็นอย่างไรบ้าง</p>
+                    <p>ตั้งสมาธิให้มั่น แล้วใช้มือซ้าย เลือกไพ่ใบเดียว แล้วไพ่จะบอกสิ่งที่จะเกิดขึ้นในวันนี้ให้คุณทราบ</p>
+                    <p className="center">คุณได้เลือก {count} ใบ</p>
+                    <div className="backCard">
+                        {tarotlist}
+                    </div>
                     <button onClick={handleSubmit} >ทำนาย</button>
-                </>
+                </div>
             ) : (
-                <h1>
-                    <Show id={id} card={TaroData}></Show>
-                </h1>
+                <>
+                <Center>
+                    <div className="singleCard">
+                        <h1>คำทำนาย</h1>
+                        <Show id={id} card={TaroData}></Show>
+                    </div>
+                </Center>
+                <div className="backCard_con">
+                    <Link to="/PickUp" >
+                        <button>กลับ</button>
+                    </Link>
+                </div>
+            </>
             )) : (<Redirect to="/" />)
 
             }

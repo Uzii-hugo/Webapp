@@ -1,11 +1,16 @@
 import React from 'react';
-
+import Center from 'react-center';
 const Present = (prop) => {
     const { id, card } = prop;
     return (
-        <div>
-            <img className="Tarot-size" src={card[id[1]].image} />
-            <div> {card[id[1]].present}</div>
+        <div className = "multiCard_dom">
+            <Center>
+            <img src={card[id[1]].image} />
+            </Center>
+            <h3> {card [id[1]].name} </h3>
+            <article> ปัจจุบัน:
+                <p>{card[id[1]].present}</p>
+            </article>
         </div>
     );
 }
@@ -13,9 +18,14 @@ const Present = (prop) => {
 const Past = (prop) => {
     const { id, card } = prop;
     return (
-        <div>
-            <img className="Tarot-size" src={card[id[0]].image} />
-            <div> {card[id[0]].past}</div>
+        <div className = "multiCard_dom">
+            <Center>
+            <img src={card[id[0]].image} />
+            </Center>
+            <h3> {card [id[0]].name} </h3>
+            <article> อดีต:
+                <p>{card[id[0]].past}</p>
+            </article>
         </div>
     );
 }
@@ -23,9 +33,14 @@ const Past = (prop) => {
 const Future = (prop) => {
     const { id, card } = prop;
     return (
-        <div>
-            <img className="Tarot-size" src={card[id[2]].image} />
-            <div> {card[id[2]].future}</div>
+        <div className = "multiCard_dom">
+            <Center>
+            <img src={card[id[2]].image} />
+            </Center>
+            <h3> {card [id[2]].name} </h3>
+            <article> อนาคต:
+                <p>{card[id[2]].future}</p>
+            </article>
         </div>
     );
 }
@@ -40,8 +55,7 @@ const ShowTheeCard = (prop) => {
 
     return (
         <>
-            <div>
-                
+            <div className = "multiCard">
                 <Past id={id} card={card} />
                 <Present id={id} card={card} />
                 <Future id={id} card={card} />
