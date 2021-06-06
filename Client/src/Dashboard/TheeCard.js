@@ -59,20 +59,24 @@ const TheeCard = () => {
 
 
         function toggleDesc(prop) {
-            setCheck(true);
+            
             if (count < 3) {
                 setId([...id, prop]);
                 setCount(count + 1);
+                setCheck(true);
 
             }
+            else if(count > 3){
+                alert("เลือกไพ่ยิปซีครบ 3 ใบแล้ว");
+            }
             else {
-                alert("เลือกไพ่ครบ 3 ใบแล้ว");
+                alert("เลือกไพ่ยิปซียังไมครบ 3 ใบ")
             }
         }
 
         const handleSubmit = (e) => {
             // e.preventDefault();
-            if(check){
+            if(check && count == 3){
                 setShowTCD(false);
               }
               else{

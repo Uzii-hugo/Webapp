@@ -19,6 +19,7 @@ const OneCard = () => {
   const [id, setId] = useState([]);
   const [td, setTd] = useState([]);
   const { currenUser } = useContext(AuthContext);
+  const [theecard,setTheecard] = useState([]);
 
 
 
@@ -44,6 +45,21 @@ const OneCard = () => {
     });
 
   }, [])
+
+  useEffect(()=>{
+    const tarotRef = firebase.database().ref('TarotPPF');
+    tarotRef.on('value', (snapshot) => {
+        const tarot = snapshot.val();
+        const List = [];
+        for (let i in tarot) {
+          List.push({ i, ...tarot[i] });
+  
+        }
+        console.log(tarot[0].id)
+        setTheecard(tarot);
+      });
+
+  },[])
 
 
   // useEffect(() => {
@@ -75,7 +91,7 @@ const OneCard = () => {
 
     }
     else {
-      alert("เลือกไพ่ครบ 1 ใบแล้ว");
+      alert("เลือกไพ่ยิปซีครบ 1 ใบแล้ว");
     }
   }
 
@@ -114,7 +130,7 @@ const OneCard = () => {
           <Center>
             <div className="singleCard">
               <h1>คำทำนาย</h1>
-              <Show id={id} card={tarotList}></Show>
+              <Show id={id} card={tarotList} thee={theecard}></Show>
             </div>
           </Center>
           <div className="backCard_con">
