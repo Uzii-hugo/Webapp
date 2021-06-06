@@ -232,10 +232,12 @@ body {
   height: auto;
   margin: 0 auto;
 }
+
 .ContainerCard h1{
   text-align: center;
   color: #ffffff;
 }
+
 .center{
   text-align: center;
   color: red;
@@ -243,6 +245,7 @@ body {
   border: 3px solid red;
   padding: 5px;
 }
+
 .logo{
   width: 30px;
   height: auto;
