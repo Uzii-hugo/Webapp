@@ -16,7 +16,7 @@ const Navbar = ()=>{
             <NavLink activeClassName="active " to="/PickUp">ดูดวงไพ่ยิปซี</NavLink>
             <NavLink activeClassName="active " to="/Hw">ดูดวงลายมือ</NavLink>
             <NavLink activeClassName="active " to="/Bd">ดูดวงวันเกิด</NavLink>
-            <NavLink activeClassName="active " to="/CC">สร้างเนื้อหา</NavLink>
+            <NavLink activeClassName="active " to="/CC">สร้างบทความ</NavLink>
             <button  activeClassName="active " onClick={() => auth.auth().signOut()} className= "rightbar logout">ออกจากระบบ</button>
             <NavLink activeClassName="active " to="/proflie"><i class="fa fa-user-circle fa-2x rightbar"></i></NavLink>
         </nav>

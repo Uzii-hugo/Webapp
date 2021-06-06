@@ -12,6 +12,7 @@ import Center from 'react-center';
 const OneCard = () => {
   const [showTCD, setShowTCD] = useState(true);
   const [tarotDeck, setTarotDeck] = useState([...TaroData]);
+  const [check,setCheck] = useState(false);
 
   const [tarotList, setTarotList] = useState([]);
   const [count, setCount] = useState(0);
@@ -67,7 +68,7 @@ const OneCard = () => {
 
 
   function toggleDesc(prop) {
-
+    setCheck(true);
     if (count < 1) {
       setId([...id, prop]);
       setCount(count + 1);
@@ -80,8 +81,13 @@ const OneCard = () => {
 
   const handleSubmit = (e) => {
     // e.preventDefault();
-
-    setShowTCD(false);
+    if(check){
+      setShowTCD(false);
+    }
+    else{
+      alert("โปรดเลือกไพ่ยิปซี 1 ใบ")
+    }
+    
   }
 
   const tarotlist = td.map((tarot) => {

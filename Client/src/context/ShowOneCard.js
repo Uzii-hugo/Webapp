@@ -11,7 +11,7 @@ const ShowOneCard = (prop) => {
     <>
       <div>
         <Center>
-          <img src={card[0].img} />
+          <img src={card[id].img} />
         </Center>
         <h3> {card[id].name} </h3>
         <article>ความหมายของไพ่:

@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../Login/Auth';
 import firebase from '../firebase/ConfigB';
 import { storage } from '../firebase/ConfigB';
+import {Redirect } from "react-router-dom";
 import addprofile from '../firebase/configP';
 function Proflie() {
 
@@ -106,7 +107,7 @@ function Proflie() {
     })
     return (
         <>
-            <div>
+            {currenUser?(<div>
                 <div className="avatar">
                     {check ? (<img className="images" src="https://i.pinimg.com/originals/76/b3/51/76b351ffa72d83d305a255f0f7b80508.png" />) : (<img className="images" src={img} />)}
 
@@ -130,7 +131,8 @@ function Proflie() {
                         {block}
                     </div>
                 </div>
-            </div>
+            </div>):(<Redirect to="/" />)}
+            
         </>
 
     )
