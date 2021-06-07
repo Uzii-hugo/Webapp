@@ -5,28 +5,18 @@ import firebase from '../firebase/config1';
 import Show from '../context/ShowOneCard';
 import { AuthContext } from '../Login/Auth';
 import {Link, Redirect } from "react-router-dom";
-import Load from './Loading';
 import Center from 'react-center';
 
 
 const OneCard = () => {
   const [showTCD, setShowTCD] = useState(true);
-  const [tarotDeck, setTarotDeck] = useState([...TaroData]);
   const [check,setCheck] = useState(false);
-
   const [tarotList, setTarotList] = useState([]);
   const [count, setCount] = useState(0);
   const [id, setId] = useState([]);
   const [td, setTd] = useState([]);
   const { currenUser } = useContext(AuthContext);
   const [theecard,setTheecard] = useState([]);
-
-
-
-  // useEffect(() => {
-  //   const ran = test(tarotDeck);
-  //   setTd(ran);
-  // }, [])
 
   useEffect(() => {
     const tarotRef = firebase.database().ref('TarotDB');
