@@ -1,19 +1,21 @@
-import React,{useContext} from 'react';
-import { AuthContext } from '../Login/Auth'
-
+import React from 'react';
+import Center from 'react-center';
 const ShowContent = (props) => {
-    const { showcontent } = useContext(AuthContext);
-    console.log(showcontent)
-    const { content, img, title, date } = props.location.data.details
+    const { content, img, title, date } = props.location.data.details;
     return (
+        <Center>
         <div className='content'>
-            <article>
-                <h1 className='title'>{title}</h1>
+            
+                <h1>{title}</h1>
+                <Center>
                 <img src={img} />
-                <span>{date}</span>
+                </Center>
+                <span>วันที่เผยแพร่: {date}</span>
+            <article>
                 <p>{content}</p>
             </article>
         </div>
+        </Center>
 
 
 
