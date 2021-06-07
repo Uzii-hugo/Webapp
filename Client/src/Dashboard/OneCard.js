@@ -12,12 +12,14 @@ import Center from 'react-center';
 const OneCard = () => {
   const [showTCD, setShowTCD] = useState(true);
   const [tarotDeck, setTarotDeck] = useState([...TaroData]);
+  const [check,setCheck] = useState(false);
 
   const [tarotList, setTarotList] = useState([]);
   const [count, setCount] = useState(0);
   const [id, setId] = useState([]);
   const [td, setTd] = useState([]);
   const { currenUser } = useContext(AuthContext);
+  const [theecard,setTheecard] = useState([]);
 
 
 
@@ -44,6 +46,21 @@ const OneCard = () => {
 
   }, [])
 
+  useEffect(()=>{
+    const tarotRef = firebase.database().ref('TarotPPF');
+    tarotRef.on('value', (snapshot) => {
+        const tarot = snapshot.val();
+        const List = [];
+        for (let i in tarot) {
+          List.push({ i, ...tarot[i] });
+  
+        }
+        console.log(tarot[0].id)
+        setTheecard(tarot);
+      });
+
+  },[])
+
 
   // useEffect(() => {
 
@@ -67,21 +84,26 @@ const OneCard = () => {
 
 
   function toggleDesc(prop) {
-
+    setCheck(true);
     if (count < 1) {
       setId([...id, prop]);
       setCount(count + 1);
 
     }
     else {
-      alert("เลือกไพ่ครบ 1 ใบแล้ว");
+      alert("เลือกไพ่ยิปซีครบ 1 ใบแล้ว");
     }
   }
 
   const handleSubmit = (e) => {
     // e.preventDefault();
-
-    setShowTCD(false);
+    if(check){
+      setShowTCD(false);
+    }
+    else{
+      alert("โปรดเลือกไพ่ยิปซี 1 ใบ")
+    }
+    
   }
 
   const tarotlist = td.map((tarot) => {
@@ -108,7 +130,7 @@ const OneCard = () => {
           <Center>
             <div className="singleCard">
               <h1>คำทำนาย</h1>
-              <Show id={id} card={tarotList}></Show>
+              <Show id={id} card={tarotList} thee={theecard}></Show>
             </div>
           </Center>
           <div className="backCard_con">

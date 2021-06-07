@@ -7,7 +7,6 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [currenUser, setCurrenUser] = useState(null);
-  const [uid,setUid] = useState(null);
   
   
   useEffect(() => {
@@ -30,7 +29,6 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={
       {
         currenUser,
-        uid
       }
 
 
