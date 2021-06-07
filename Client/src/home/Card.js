@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useContext,useEffect} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Login/Auth'
 
 function Button(props) {
-
+  const { show } = useContext(AuthContext);
+  useEffect(()=>{
+   // console.log(props.details)
+      show(props.details);
+  },[])
+  
   return (
     <Link className="button button-primary" to={{
       pathname: '/showcontent', data: {

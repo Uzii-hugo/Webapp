@@ -7,6 +7,7 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [currenUser, setCurrenUser] = useState(null);
+  const [showcontent,setContent] = useState(null);
   
   
   useEffect(() => {
@@ -16,6 +17,10 @@ export const AuthProvider = ({ children }) => {
     })
 
   }, [])
+
+  const show = ((content)=>{
+      setContent(content)
+  })
 
   // useEffect(()=>{
   //   setUid(curruser.uid)
@@ -29,6 +34,8 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={
       {
         currenUser,
+        showcontent,
+        show
       }
 
 

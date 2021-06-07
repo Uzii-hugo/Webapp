@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import { AuthContext } from '../Login/Auth'
 
 const ShowContent = (props) => {
+    const { showcontent } = useContext(AuthContext);
+    console.log(showcontent)
     const { content, img, title, date } = props.location.data.details
     return (
         <div className='content'>
