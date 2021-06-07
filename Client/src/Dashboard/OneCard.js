@@ -28,7 +28,6 @@ const OneCard = () => {
         List.push({ i, ...tarot[i] });
 
       }
-      console.log(tarot[0].id)
       setTarotList(tarot);
       const ran = rand(List);
       setTd(ran);
@@ -45,19 +44,12 @@ const OneCard = () => {
           List.push({ i, ...tarot[i] });
   
         }
-        console.log(tarot[0].id)
+        
         setTheecard(tarot);
       });
 
   },[])
 
-
-  // useEffect(() => {
-
-  //   console.log(id);
-  //   console.log(count);
-  
-  // }, [id])
 
   const rand = array => {
     let i = 0;

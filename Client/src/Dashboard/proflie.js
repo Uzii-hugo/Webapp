@@ -84,7 +84,7 @@ function Proflie() {
 
     }
 
-    console.log("555" + img)
+   
     const handleChangeImages = e => {
         if (e.target.files[0]) {
             setImage(e.target.files[0]);
@@ -102,9 +102,11 @@ function Proflie() {
 
     const pfile = profile.map((uid) => {
         if (uid.uid == currenUser.uid) {
-            return <><h1>{uid.name} {uid.surname}</h1> <p>{uid.bd}</p></>
+            return <><h1>{uid.name} {uid.surname}</h1>  <p> ปีเกิด-เดือน-วัน {uid.bd}</p>  <p>เบอร์โทรศัพท์ {uid.pn}</p></>
         }
     })
+
+    
     return (
         <>
             {currenUser?(<div>

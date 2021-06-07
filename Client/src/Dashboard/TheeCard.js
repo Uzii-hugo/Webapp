@@ -26,7 +26,7 @@ const TheeCard = () => {
               List.push({ i, ...tarot[i] });
       
             }
-            console.log(tarot[0].id)
+           
             setTarotList(tarot);
             const ran = rand(List);
             setTd(ran);
@@ -35,12 +35,7 @@ const TheeCard = () => {
 
         }, [])
 
-        useEffect(() => {
-            console.log(id);
-            console.log(count);
-            console.log('new' + Array.from(new Set(id)))
-
-        }, [id])
+        
 
 
 

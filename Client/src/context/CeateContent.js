@@ -6,17 +6,19 @@ import { Redirect } from "react-router-dom";
 import Center from 'react-center';
 
 
+
 function CeateContent() {
 
-  const [title, setTitle] = useState('');
-  const [authur, setAuthur] = useState('');
-  const [content, setcontent] = useState('');
-  const [date, setDate] = useState('');
+  const [title, setTitle] = useState(' ');
+  const [authur, setAuthur] = useState(' ');
+  const [content, setcontent] = useState(' ');
+  const [date, setDate] = useState(' ');
 
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [img, setUrl] = useState("");
+  const [img, setUrl] = useState(" ");
   const { currenUser } = useContext(AuthContext);
+  const [check, setCheck] = useState(false);
 
 
   const hadleOnChangTitle = (e) => {
@@ -35,18 +37,34 @@ function CeateContent() {
     setDate(e.target.value);
   }
 
-  const creatTodo = () => {
-    const todoRef = firebase.database().ref('BlogDB');
-    const uid = currenUser.uid;
-    const todo = {
-      uid,
-      title,
-      date,
-      authur,
-      content,
-      img
+  const creatTodo = (e) => {
+    e.preventDefault();
+
+    if (title.length > 0 && authur.length > 0 && content > 0 && date.length > 0) {
+      const todoRef = firebase.database().ref('BlogDB');
+      const uid = currenUser.uid;
+      const todo = {
+        uid,
+        title,
+        date,
+        authur,
+        content,
+        img
+      }
+      todoRef.push(todo);
+
+      alert("บทความของคุณถูกโพสต์เรียบร้อยแล้ว");
+      setCheck(true);
+
     }
-    todoRef.push(todo)
+    else{
+      alert("ข้อมูลของคุณไม่ครบถ้วน โปรดตรวจสอบอีกครั้ง");
+    }
+
+
+  }
+  if (check) {
+    return <Redirect to="/" />
   }
 
   const handleChangeImages = e => {
@@ -55,7 +73,8 @@ function CeateContent() {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = (e) => {
+    e.preventDefault();
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
