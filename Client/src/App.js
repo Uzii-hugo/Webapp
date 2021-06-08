@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter,NavLink,Route,Switch} from 'react-router-dom';
+import { BrowserRouter,Route,Switch} from 'react-router-dom';
 import {AuthProvider} from './Login/Auth'
 import Home from './home/Home';
 import Navbar from './home/Navbar';
@@ -10,7 +10,6 @@ import OneCard from './Dashboard/OneCard';
 import Show from './context/ShowOneCard';
 import PickUp from './Dashboard/Pickup';
 import Proflie from './Dashboard/proflie';
-import Waiting from './context/404'
 import ShowContent from './context/ShowContent'
 import BirthdayHoroscope from './context/BirthdayHoroscope'
 import HandWriting from './context/HandWriting'
@@ -32,7 +31,6 @@ function App() {
                 <Route path='/show' component={Show}/>
                 <Route path='/PickUp' component={PickUp}/>
                 <Route path='/proflie' component={Proflie}/>
-                <Route path='/404' component={Waiting}/>
                 <Route path='/showcontent' component = {ShowContent}/>
                 <Route path='/Bd' component = {BirthdayHoroscope}/>
                 <Route path='/Hw' component = {HandWriting}/>

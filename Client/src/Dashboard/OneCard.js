@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import TaroData from '../Data/TaroData';
 import BackTarot from '../img/BackToro.png';
 import firebase from '../firebase/config1';
 import Show from '../context/ShowOneCard';

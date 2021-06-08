@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import TaroData from '../Data/TaroData';
 import BackTarot from '../img/BackToro.png';
 import firebase from '../firebase/config1';
 import { AuthContext } from '../Login/Auth';
@@ -10,7 +9,6 @@ import Center from 'react-center';
 const TheeCard = () => {
     const { currenUser } = useContext(AuthContext);
     const [showTCD, setShowTCD] = useState(true);
-    const [tarotDeck, setTarotDeck] = useState([...TaroData]);
     const [tarotList, setTarotList] = useState([]);
     const [count, setCount] = useState(0);
     const [id, setId] = useState([]);
@@ -61,7 +59,7 @@ const TheeCard = () => {
                 setCheck(true);
 
             }
-            else if(count > 3){
+            else if(count  ==  3){
                 alert("เลือกไพ่ยิปซีครบ 3 ใบแล้ว");
             }
             else {

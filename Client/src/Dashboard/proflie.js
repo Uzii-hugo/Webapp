@@ -3,7 +3,6 @@ import { AuthContext } from '../Login/Auth';
 import firebase from '../firebase/ConfigB';
 import { storage } from '../firebase/ConfigB';
 import {Redirect } from "react-router-dom";
-import addprofile from '../firebase/configP';
 function Proflie() {
 
     const { currenUser } = useContext(AuthContext);

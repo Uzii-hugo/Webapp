@@ -40,7 +40,7 @@ function CeateContent() {
   const creatTodo = (e) => {
     e.preventDefault();
 
-    if (title.length > 0 && authur.length > 0 && content > 0 && date.length > 0) {
+    
       const todoRef = firebase.database().ref('BlogDB');
       const uid = currenUser.uid;
       const todo = {
@@ -56,10 +56,8 @@ function CeateContent() {
       alert("บทความของคุณถูกโพสต์เรียบร้อยแล้ว");
       setCheck(true);
 
-    }
-    else{
-      alert("ข้อมูลของคุณไม่ครบถ้วน โปรดตรวจสอบอีกครั้ง");
-    }
+    
+
 
 
   }
